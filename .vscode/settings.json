@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "opt.h": "c",
+        "lwipopts.h": "c",
+        "qstrdefs.generated.h": "c",
+        "runtime.h": "c",
+        "memp_std.h": "c"
+    }
+}

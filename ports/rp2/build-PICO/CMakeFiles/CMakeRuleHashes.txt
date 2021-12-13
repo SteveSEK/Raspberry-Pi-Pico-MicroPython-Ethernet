@@ -1,0 +1,24 @@
+# Hashes of file build rules.
+2ede3df5e3d366c93531c4031ae40696 /home/work/micropython/mpy-cross/mpy-cross
+a66b320ff3dfe4cc7ab51576c04c1b36 CMakeFiles/ELF2UF2Build
+8c3506a326b00715e0dd98e98a59a821 CMakeFiles/ELF2UF2Build-complete
+a960b7a9bbbfcc9f255852c33f7ce5c4 MICROPY_FORCE_BUILD
+b1eefe062cb0b6103ce132d6631e69e0 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build
+768549d01f4f425720a578497bf3e402 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure
+ce9415c3206374d0e2383cf08c63a1e9 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download
+b32a52651221ce74702c5d4eba296098 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install
+ec7224d2396beb1d341bccf3f60eece9 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir
+ce0df2f0ed6366a6b177e8599aaa1fbd elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch
+a7eba0c03bdad65beec9771a63511442 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update
+2edc121cf66a6075cb204e6385c47044 frozen_content.c
+3636d56f9a5fbf4111aca29424a50491 genhdr/moduledefs.h
+b87ba5eb93e0bde279e0cfcb9a6120d4 genhdr/mpversion.h
+c3b936a216c280e5998c8eac57b64574 genhdr/qstr.i.last
+b53646236be053b2a10ad3968581d16b genhdr/qstr.split
+2c055475dbfeadb68ec66e3bbc3daf51 genhdr/qstrdefs.collected.h
+ddb5332b479099f7ac1c9b4eb7e1162b genhdr/qstrdefs.generated.h
+7e69aceae9b38719d9c444aa2f5addaa genhdr/qstrdefs.preprocessed.h
+02c2dda2c15b628318ca4b6c68d610ff pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin
+02c2dda2c15b628318ca4b6c68d610ff pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm
+aa53c9d66d0dca952372c9e8cdf78d4a pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+a4c3e7addba0ffe724bfa558b36c68c1 pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
