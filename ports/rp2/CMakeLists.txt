@@ -62,7 +62,7 @@ include(${MICROPY_DIR}/py/usermod.cmake)
 if (MICROPY_PY_WIZNET5K)
    INCLUDE_DIRECTORIES(${MICROPY_DIR}/drivers/wiznet5k/ ${MICROPY_DIR}/drivers/wiznet5k/ethernet/w${MICROPY_PY_WIZNET5K}) 
    ########################################################################################
-   #sekim 20211201 add lwip, mbedtls include 
+   ##211201 add lwip, mbedtls include 
    INCLUDE_DIRECTORIES(${MICROPY_DIR}/ports/rp2/lwip_inc/ ${MICROPY_DIR}/lib/lwip/src/include/) 
    INCLUDE_DIRECTORIES(${MICROPY_DIR}/lib/mbedtls/include/) 
    ########################################################################################
@@ -91,7 +91,7 @@ set(MICROPY_SOURCE_LIB
     ${MICROPY_DIR}/shared/runtime/sys_stdio_mphal.c
     ${MICROPY_DIR}/shared/timeutils/timeutils.c
     #############################################################################
-    # sekim 20211209 add mbedtls component
+    ##211209 add mbedtls component
     ${MICROPY_DIR}/lib/lwip/src/apps/mdns/mdns.c     
     ${MICROPY_DIR}/lib/lwip/src/core/def.c           
     ${MICROPY_DIR}/lib/lwip/src/core/dns.c           
@@ -215,7 +215,7 @@ if (MICROPY_PY_WIZNET5K)
         ${MICROPY_DIR}/extmod/modnetwork.c        
         ${MICROPY_DIR}/extmod/modusocket.c
         ${PROJECT_SOURCE_DIR}/modnwwiznet5k.c
-        # sekim 20211209 add mbedtls component
+        ##211209 add mbedtls component
         ${MICROPY_DIR}/extmod/modlwip.c
         ${PROJECT_SOURCE_DIR}/network_wiznet5k.c        
         ${PROJECT_SOURCE_DIR}/mbedtls/mbedtls_port.c
@@ -272,7 +272,7 @@ set(MICROPY_SOURCE_QSTR
     ${PROJECT_SOURCE_DIR}/modutime.c
     ${PROJECT_SOURCE_DIR}/rp2_flash.c
     ${PROJECT_SOURCE_DIR}/rp2_pio.c
-    # sekim 20211209 add mbedtls component
+    ##211209 add mbedtls component
     ${PROJECT_SOURCE_DIR}/network_wiznet5k.c    
     ${MICROPY_DIR}/extmod/modlwip.c
 )
@@ -337,7 +337,7 @@ if(MICROPY_BLUETOOTH_NIMBLE)
     list(APPEND MICROPY_INC_CORE ${NIMBLE_INCLUDE})
 endif()
 
-# sekim 20211209 add mbedtls component
+##211209 add mbedtls component
 target_compile_options(${MICROPY_TARGET} PRIVATE -DMBEDTLS_CONFIG_FILE="mbedtls/mbedtls_config.h")
 
 
@@ -401,7 +401,7 @@ if (MICROPY_PY_WIZNET5K)
         LFS1_NO_MALLOC LFS1_NO_DEBUG LFS1_NO_WARN LFS1_NO_ERROR LFS1_NO_ASSERT
         LFS2_NO_MALLOC LFS2_NO_DEBUG LFS2_NO_WARN LFS2_NO_ERROR LFS2_NO_ASSERT
         PICO_FLOAT_PROPAGATE_NANS=1
-        # sekim 20211203 set PICO_STACK_SIZE
+        ##211203 set PICO_STACK_SIZE
         PICO_STACK_SIZE=0x2000
         #PICO_STACK_SIZE=0x1000
         PICO_CORE1_STACK_SIZE=0

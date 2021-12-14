@@ -46,12 +46,8 @@
 #include "mbedtls/debug.h"
 #include "mbedtls/error.h"
 
-////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#include "../py/runtime.h"
-#include "../py/mphal.h"
+#include "py/mphal.h"
 #define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-////////////////////////////////////////////////////////////////////////
 
 typedef struct _mp_obj_ssl_socket_t {
     mp_obj_base_t base;
@@ -80,7 +76,7 @@ STATIC void mbedtls_debug(void *ctx, int level, const char *file, int line, cons
     (void)ctx;
     (void)level;
     ////////////////////////////////////////////////////////////////////////////
-    // sekim XXXX   too many mbedtls debugging message
+    ///211214 too many mbedtls debugging message
     //printf("DBG:%s:%04d: %s\n", file, line, str);
     if ( strcmp(str, "=> read\n")==0 || strcmp(str, "<= read\n")==0 )
         return;

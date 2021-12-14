@@ -40,7 +40,7 @@
 #define SO_REUSE                        1
 #define TCP_LISTEN_BACKLOG              1
 
-// sekim 20211130 LWIP_NETIF_LINK_CALLBACK, LWIP_NETIF_STATUS_CALLBACK
+///211130 LWIP_NETIF_LINK_CALLBACK, LWIP_NETIF_STATUS_CALLBACK
 #define LWIP_NETIF_LINK_CALLBACK        1
 #define LWIP_NETIF_STATUS_CALLBACK      1
 
@@ -62,7 +62,7 @@ extern uint32_t rng_get(void);
 #if 1
 // lwip takes 26700 bytes; TCP dl/ul are around 750/600 k/s on local network
 //////////////////////////////////////////////////////////////////
-// sekim 20211208 TCP_MSS TCP_WND
+///211208 TCP_MSS TCP_WND
 /*
 #define MEM_SIZE (8000)
 #define TCP_MSS (800)

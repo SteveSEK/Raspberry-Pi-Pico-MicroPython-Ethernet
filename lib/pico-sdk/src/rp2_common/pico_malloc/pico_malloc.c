@@ -46,12 +46,8 @@ void *__wrap_malloc(size_t size) {
     return rc;
 }
 
-////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#include "../../../../../py/runtime.h"
-#include "../../../../../py/mphal.h"
+#include "py/mphal.h"
 #define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-////////////////////////////////////////////////////////////////////////
 
 void *__wrap_calloc(size_t count, size_t size) {
 #if PICO_USE_MALLOC_MUTEX

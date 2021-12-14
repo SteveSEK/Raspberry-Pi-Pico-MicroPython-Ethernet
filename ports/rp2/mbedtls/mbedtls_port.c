@@ -27,21 +27,14 @@
 #include "py/runtime.h"
 #include "py/gc.h"
 ////////////////////////////////////////////////////////////////////////////////////
-// sekim 202112002 rng_get
+///2112002 rng_get
 //#include "rng.h"
 uint32_t rng_get(void);
 ////////////////////////////////////////////////////////////////////////////////////
 #include "mbedtls_config.h"
 
-
-////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#include "../../../py/runtime.h"
-#include "../../../py/mphal.h"
+#include "py/mphal.h"
 #define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-////////////////////////////////////////////////////////////////////////
-
-
 
 #define DEBUG (0)
 
@@ -60,7 +53,7 @@ static size_t count_links(uint32_t *nb) {
 #endif
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// sekim 20211207 m_calloc_mbedtls m_free_mbedtls
+///211207 m_calloc_mbedtls m_free_mbedtls
 /*
 void *m_calloc_mbedtls(size_t nmemb, size_t size) {
     void **ptr = m_malloc0(nmemb * size + 2 * sizeof(uintptr_t));

@@ -50,7 +50,7 @@
 #include "hardware/structs/rosc.h"
 
 extern uint8_t __StackTop, __StackBottom;
-// sekim 20211203 set gc_heap
+///211203 set gc_heap
 //static char gc_heap[192 * 1024];
 static char gc_heap[128 * 1024];
 
@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
     rtc_set_datetime(&t);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // sekim 20211201 lwip_init()
+    ///211201 lwip_init()
     mp_hal_delay_ms(100);
     void lwip_init(void);
     lwip_init();

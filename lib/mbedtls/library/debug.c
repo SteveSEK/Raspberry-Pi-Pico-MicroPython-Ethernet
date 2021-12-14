@@ -74,22 +74,18 @@
 #endif
 
 
-////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#include "../../../py/mphal.h"
+#include "py/mphal.h"
 #define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-////////////////////////////////////////////////////////////////////////
-
 
 #define DEBUG_BUF_SIZE      512
 
-// sekim 20211209 mbedtls set debug_threshold
+///211209 mbedtls set debug_threshold
 //static int debug_threshold = 0;
 int debug_threshold = 0;
 
 void mbedtls_debug_set_threshold( int threshold )
 {
-    // sekim 20211209 mbedtls set debug_threshold
+    ///211209 mbedtls set debug_threshold
     //debug_threshold = threshold;
 }
 

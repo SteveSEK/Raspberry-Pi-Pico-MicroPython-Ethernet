@@ -36,17 +36,11 @@
 #include "machine_pin.h"
 #include "lwipopts.h"
 
-////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-value"
-#pragma GCC diagnostic ignored "-Wint-conversion"
-#pragma GCC diagnostic ignored "-Wunused-function"
+#include "py/mphal.h"
 #define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////
-// sekim 20211124 add rng_net() sys_now()
+///211124 add rng_net() sys_now()
 uint32_t rng_get(void)
 {
     uint32_t rosc_random_u32(void);
@@ -158,7 +152,7 @@ STATIC void wiznet5k_init(void)
     getSHAR(mac);
     if ((mac[0] | mac[1] | mac[2] | mac[3] | mac[4] | mac[5]) == 0)
     {
-        // sekim 20211124 set default mac
+        ///211124 set default mac
         //mp_hal_get_mac(MP_HAL_MAC_ETH0, mac);
         mac[0] = 0x08; mac[1] = 0xdc; mac[2] = 0x11; mac[3] = 0x22; mac[4] = 0x33; mac[5] = 0x44;
         setSHAR(mac);
@@ -299,7 +293,7 @@ STATIC void wiznet5k_lwip_init(wiznet5k_obj_t *self)
     self->netif.flags &= ~NETIF_FLAG_UP;
 }
 
-// sekim 20211203 implementation wiznet5k_poll
+///211203 implementation wiznet5k_poll
 void wiznet5k_poll(void)
 {
     wiznet5k_obj_t *self = &wiznet5k_obj;
@@ -371,7 +365,7 @@ STATIC mp_obj_t wiznet5k_make_new(const mp_obj_type_t *type, size_t n_args, size
     // register with network module
     mod_network_register_nic(&wiznet5k_obj);
 
-    // sekim 20211203 wiznet5k init delay ?
+    ///211203 wiznet5k init delay ?
     mp_hal_delay_ms(1000);
 
     // return wiznet5k object
@@ -498,7 +492,7 @@ STATIC mp_obj_t wiznet5k_status(size_t n_args, const mp_obj_t *args)
 STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(wiznet5k_status_obj, 1, 2, wiznet5k_status);
 
 /////////////////////////////////////////////////////////////////////////////////////////
-// sekim XXXX 20211209 wiznet5k_extfunc
+///211209 wiznet5k_extfunc
 STATIC mp_obj_t wiznet5k_extfunc(size_t n_args, const mp_obj_t *args)
 {
     wiznet5k_obj_t *self = MP_OBJ_TO_PTR(args[0]);
@@ -553,13 +547,13 @@ STATIC mp_obj_t wiznet5k_extfunc(size_t n_args, const mp_obj_t *args)
         }
         else if (function == 21)
         {
-            // sekim 20211209 mbedtls set debug_threshold
+            ///211209 mbedtls set debug_threshold
             extern int debug_threshold;
             debug_threshold = param1;
         }
         else if (function == 22)
         {
-            // sekim 20211209 mbedtls set debug_threshold
+            ///211209 mbedtls set debug_threshold
             self->trace_flags = param1;
         }
         else if (function == 17)
@@ -658,32 +652,27 @@ STATIC const mp_rom_map_elem_t wiznet5k_locals_dict_table[] = {
     {MP_ROM_QSTR(MP_QSTR_ifconfig), MP_ROM_PTR(&wiznet5k_ifconfig_obj)},
     {MP_ROM_QSTR(MP_QSTR_status), MP_ROM_PTR(&wiznet5k_status_obj)},
     {MP_ROM_QSTR(MP_QSTR_config), MP_ROM_PTR(&wiznet5k_config_obj)},
-    // sekim XXXX 20211209 wiznet5k_extfunc
+    ///211209 wiznet5k_extfunc
     {MP_ROM_QSTR(MP_QSTR_extfunc), MP_ROM_PTR(&wiznet5k_extfunc_obj)},
 
     {MP_ROM_QSTR(MP_QSTR_send_ethernet), MP_ROM_PTR(&send_ethernet_obj)},
 };
 STATIC MP_DEFINE_CONST_DICT(wiznet5k_locals_dict, wiznet5k_locals_dict_table);
 
-// sekim 20211124 add mod_network_nic_type_wiznet5k_print
+///211124 add mod_network_nic_type_wiznet5k_print
 STATIC void mod_network_nic_type_wiznet5k_print(const mp_print_t *print, mp_obj_t self_in, mp_print_kind_t kind)
 {    
 }
 
-// sekim 20211124 for compile. _mp_obj_type_t mod_network_nic_type_wiznet5k
+///211124 for compile. _mp_obj_type_t mod_network_nic_type_wiznet5k
 //const mp_obj_type_t mod_network_nic_type_wiznet5k = {
 const struct _mp_obj_type_t mod_network_nic_type_wiznet5k = {
     {&mp_type_type},
     .name = MP_QSTR_WIZNET5K,
-    // sekim 20211124 add mod_network_nic_type_wiznet5k_print
+    ///211124 add mod_network_nic_type_wiznet5k_print
     .print = mod_network_nic_type_wiznet5k_print,
     .make_new = wiznet5k_make_new,
     .locals_dict = (mp_obj_dict_t *)&wiznet5k_locals_dict,
 };
-
-////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#pragma GCC diagnostic pop
-////////////////////////////////////////////////////////////////////////
 
 #endif // MICROPY_PY_WIZNET5K && MICROPY_PY_LWIP

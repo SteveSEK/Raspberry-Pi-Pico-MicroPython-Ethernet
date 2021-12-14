@@ -136,7 +136,6 @@ TU_VERIFY_STATIC(sizeof(rp2040_buffer_control_t) == 2, "size is not correct");
 
 static inline void print_bufctrl16(uint32_t u16)
 {
-  // sekim XXX
   rp2040_buffer_control_t bufctrl;
   (void)bufctrl;
 

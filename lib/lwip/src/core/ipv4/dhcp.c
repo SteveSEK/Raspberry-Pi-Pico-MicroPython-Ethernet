@@ -82,24 +82,8 @@
 
 #include <string.h>
 
-///////////////////////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#include "../../../../../py/runtime.h"
-#include "../../../../../py/mphal.h"
-//#define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-#define printf(...)
-/*
-#undef LWIP_DEBUGF
-//#define LWIP_DEBUGF(a, ...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-#define LWIP_DEBUGF(a,...) {\
-    _Pragma("GCC diagnostic push")\
-    _Pragma("GCC diagnostic ignored \"-Wunused-value\"")\
-    _Pragma("GCC diagnostic ignored \"-Wint-conversion\"")\
-    _Pragma("GCC diagnostic ignored \"-Wunused-function\"")\
-    mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__);\
-    _Pragma("GCC diagnostic pop")}\
-*/    
-///////////////////////////////////////////////////////////////////////////////////////////
+#include "py/mphal.h"
+#define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
 
 #ifdef LWIP_HOOK_FILENAME
 #include LWIP_HOOK_FILENAME

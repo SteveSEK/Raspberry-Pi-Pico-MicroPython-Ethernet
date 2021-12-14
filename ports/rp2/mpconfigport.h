@@ -114,10 +114,10 @@
 #define MICROPY_PY_NETWORK                      (1)
 #define MICROPY_PY_USOCKET                      (1)
 
-// sekim 20211124 set MICROPY_PY_LWIP
+///211124 set MICROPY_PY_LWIP
 #define MICROPY_PY_LWIP                         (1)
 
-// sekim 20211209 add mbedtls component
+///211209 add mbedtls component
 #define MICROPY_PY_USSL                         (1)
 #define MICROPY_SSL_MBEDTLS                     (1)
 
@@ -186,7 +186,7 @@ extern const struct _mp_obj_module_t mp_module_usocket;
 extern const struct _mp_obj_module_t mp_module_utime;
 
 ////////////////////////////////////////////////////////////////////////////////
-// sekim 20211124 SOCKET_BUILTIN_MODULE
+///211124 SOCKET_BUILTIN_MODULE
 /*
 #if MICROPY_PY_USOCKET
 #define SOCKET_BUILTIN_MODULE               { MP_ROM_QSTR(MP_QSTR_usocket), MP_ROM_PTR(&mp_module_usocket) },
@@ -216,7 +216,7 @@ extern const struct _mp_obj_module_t mp_module_utime;
 #endif
 
 #if MICROPY_PY_WIZNET5K
-// sekim 20211124 for compile. _mp_obj_type_t mod_network_nic_type_wiznet5k
+///211124 for compile. _mp_obj_type_t mod_network_nic_type_wiznet5k
 //extern const struct _mod_network_nic_type_t mod_network_nic_type_wiznet5k;
 extern const struct _mp_obj_type_t mod_network_nic_type_wiznet5k;
 
@@ -271,7 +271,7 @@ struct _mp_bluetooth_nimble_malloc_t;
 #define MP_STATE_PORT MP_STATE_VM
 
 ////////////////////////////////////////////////////////////////////////////////////////
-// sekim 20211209 add mbedtls component
+///211209 add mbedtls component
 #if MICROPY_SSL_MBEDTLS
 #define MICROPY_PORT_ROOT_POINTER_MBEDTLS void **mbedtls_memory;
 #else
@@ -302,7 +302,7 @@ struct _mp_bluetooth_nimble_malloc_t;
 
 #define MICROPY_EVENT_POLL_HOOK \
     do { \
-        /* // sekim 20211203 implementation wiznet5k_poll */ \
+        /* ///211203 implementation wiznet5k_poll */ \
         mp_hal_delay_ms(10); \
         void wiznet5k_poll(); \
         wiznet5k_poll(); \
@@ -328,3 +328,4 @@ typedef intptr_t mp_off_t;
 #define MICROPY_FROZEN_LIST_ITEM(name, file) bi_decl(bi_string(BINARY_INFO_TAG_MICROPYTHON, BINARY_INFO_ID_MP_FROZEN, name))
 
 extern uint32_t rosc_random_u32(void);
+

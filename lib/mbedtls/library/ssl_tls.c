@@ -79,13 +79,8 @@
 #include "mbedtls/oid.h"
 #endif
 
-////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#include "../../../py/runtime.h"
-#include "../../../py/mphal.h"
+#include "py/mphal.h"
 #define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-////////////////////////////////////////////////////////////////////////
-
 
 static void ssl_reset_in_out_pointers( mbedtls_ssl_context *ssl );
 static uint32_t ssl_get_hs_total_len( mbedtls_ssl_context const *ssl );

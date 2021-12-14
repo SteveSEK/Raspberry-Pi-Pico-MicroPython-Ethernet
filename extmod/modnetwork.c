@@ -36,7 +36,7 @@
 
 #if MICROPY_PY_NETWORK
 
-// sekim 20211130 add "lwip_inc/lwipopts.h"
+///211130 add "lwip_inc/lwipopts.h"
 #include "lwip_inc/lwipopts.h"
 
 #if MICROPY_PY_LWIP

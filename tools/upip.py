@@ -150,13 +150,13 @@ def url_open(url):
             if warn_ussl:
                 print("Warning: %s SSL certificate is not validated" % host)
                 warn_ussl = False
-            # sekim 20211209 upip modification
+            ##211209 upip modification
             print("HTTPS TLS established : %s " % host) 
 
         # MicroPython rawsocket module supports file interface directly
         s.write("GET /%s HTTP/1.0\r\nHost: %s:%s\r\n\r\n" % (urlpath, host, port))
         l = s.readline()
-        # sekim 20211209 upip modification
+        ##211209 upip modification
         print("   " + l.decode(), end='')
         protover, status, msg = l.split(None, 2)
         if status != b"200":
@@ -169,7 +169,7 @@ def url_open(url):
                 raise ValueError("Unexpected EOF in HTTP headers")
             if l == b"\r\n":
                 break
-            # sekim 20211209 upip modification
+            ##211209 upip modification
             print("   " + l.decode(), end='')
     except Exception as e:
         s.close()
@@ -197,7 +197,7 @@ def fatal(msg, exc=None):
         raise exc
     sys.exit(1)
 
-# sekim XXXX upip detail error message
+##211213 upip detail error message
 def install_pkg(pkg_spec, install_path):
     data = get_pkg_metadata(pkg_spec)
     

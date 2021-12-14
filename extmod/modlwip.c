@@ -51,15 +51,8 @@
 #include "lwip/priv/tcp_priv.h"
 #endif
 
-///////////////////////////////////////////////////////////////////////////////////////////
-// sekim 20211124 #define printf(...) mp_printf
-#include "../py/runtime.h"
-#include "../py/mphal.h"
+#include "py/mphal.h"
 #define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
-//#define printf(...)
-///////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 #if 0 // print debugging info
 #define DEBUG_printf DEBUG_printf
@@ -727,7 +720,7 @@ STATIC mp_uint_t lwip_tcp_send(lwip_socket_obj_t *socket, const byte *buf, mp_ui
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // sekim 20211203 force to tcp_output() (why???)
+    ///211203 force to tcp_output() (???)
     err = tcp_output(socket->pcb.tcp);
     ////////////////////////////////////////////////////////////////////////////////////////////////            
 

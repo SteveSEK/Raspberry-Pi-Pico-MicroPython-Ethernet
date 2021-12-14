@@ -5,7 +5,7 @@
 BOARD ?= PICO
  
 BUILD ?= build-$(BOARD)
-# sekim 20211209 MICROPY_PY_WIZNET5K ?= 5100
+##211209 MICROPY_PY_WIZNET5K ?= 5100
 MICROPY_PY_WIZNET5K ?= 5105
 
 $(VERBOSE)MAKESILENT = -s
@@ -18,7 +18,7 @@ CMAKE_ARGS += -DUSER_C_MODULES=${USER_C_MODULES}
 endif
 
 ################################################################################
-# sekim 20211124 set MICROPY_PY_LWIP
+##211124 set MICROPY_PY_LWIP
 MICROPY_PY_LWIP ?= 1
 CMAKE_ARGS += -DMICROPY_PY_LWIP=$(MICROPY_PY_LWIP)
 ################################################################################

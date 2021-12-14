@@ -6,7 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/work/micropython/lib/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
-cstdlib
--
-
