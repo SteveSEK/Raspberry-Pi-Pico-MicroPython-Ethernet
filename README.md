@@ -1,4 +1,4 @@
-XXXX Raspberry Pi Pico MicroPython Ethernet
+XXXXXXXXXX Raspberry Pi Pico MicroPython Ethernet
 ======================================
 
 ## Overview
