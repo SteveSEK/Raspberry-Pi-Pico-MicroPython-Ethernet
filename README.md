@@ -5,6 +5,9 @@ QQQXXXXXXXXXX Raspberry Pi Pico MicroPython Ethernet
 This is the MicroPython project, which aims to put an implementation of micropython, WIZnet ethernet chip and raspberry pi pico(RP2040).
 And, there are some micoropython examples using it. 
 
+![image](https://user-images.githubusercontent.com/2126804/146094650-630c79a5-e1f0-4f33-bb8f-03ffea796844.png)
+
+
 ## Major Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
 * **[WIZnet W5100S](https://www.wiznet.io/ko/product-item/w5100s)** (Ethernet Chip MacRaw mode)  (W5500 가능)
