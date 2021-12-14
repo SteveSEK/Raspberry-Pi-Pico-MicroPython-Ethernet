@@ -1,4 +1,4 @@
-XXXXXXXXXX Raspberry Pi Pico MicroPython Ethernet
+QQQXXXXXXXXXX Raspberry Pi Pico MicroPython Ethernet
 ======================================
 
 ## Overview
