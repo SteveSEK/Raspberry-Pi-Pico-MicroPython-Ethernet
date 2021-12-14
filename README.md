@@ -50,28 +50,8 @@ make -s -C build-PICO
 [  1%] Built target ELF2UF2Build
 [  2%] Built target bs2_default
 [  3%] Built target bs2_default_padded_checksummed_asm
-[  3%] Generating genhdr/mpversion.h
-[  3%] Generating genhdr/moduledefs.h
-[  4%] Generating genhdr/qstr.i.last
-[  4%] Generating genhdr/qstr.split
-[  4%] Generating genhdr/qstrdefs.collected.h
-QSTR not updated
-[  4%] Generating frozen_content.c
-Scanning dependencies of target firmware
-[  4%] Generating genhdr/mpversion.h
-[  4%] Generating genhdr/qstrdefs.collected.h
-QSTR not updated
-[  4%] Building C object CMakeFiles/firmware.dir/home/work/micropython/py/objmodule.c.obj
-[  4%] Building C object CMakeFiles/firmware.dir/home/work/micropython/extmod/moduzlib.c.obj
 ..............................................................................
 ..............................................................................
-[ 97%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/dfu/dfu_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/hid/hid_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/midi/midi_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/msc/msc_device.c.obj
-[ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/net/net_device.c.obj
-[ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
 [ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/vendor/vendor_device.c.obj
 [ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 [100%] Linking CXX executable firmware.elf
@@ -80,10 +60,9 @@ QSTR not updated
 [100%] Built target firmware
 ```
 
-
-# S/W Major Components
-
 # Micropython Example
+
+
 
 # License
 
