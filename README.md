@@ -1,4 +1,4 @@
-QQQXXXXXXXXXX Raspberry Pi Pico MicroPython Ethernet
+Raspberry Pi Pico MicroPython Ethernet
 ======================================
 
 ## Overview
@@ -64,41 +64,5 @@ make -s -C build-PICO
 ```
 
 # Micropython Example
-
-
-
-# License
-
-
-
-
-
-
-https://docs.wiznet.io/Product/iEthernet/W5100S/w5100s-evb-pico
-
-
-Software development environment (Build Log)
-Windows 10 WSL 
-빌드 로그
-바이너리, memory map?
-
-
-
-예제 
-   Quick Start (USB 복)
-   TCP/UDP
-   ureqest
-   mbedtls
-   upip 분석   
-   mqtt
-   extfunc
-   
-License
-
-
-------------
-예) TCP/UDP
-HW 구성 
-로그
 
 
