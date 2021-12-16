@@ -60,7 +60,7 @@ Extracting /lib/umqtt/simple.py
 * TCP Port: 1883
 * Websocket Port: 8000
 
-## HiveMQ Publish example (MQTT)
+## MQTT Publish example
 ```
 >>> 
 >>> from umqtt.simple import MQTTClient
@@ -73,7 +73,7 @@ Extracting /lib/umqtt/simple.py
 >>> 
 ```
 
-## HiveMQ Subscribe example (MQTT)
+## MQTT Subscribe example
 ```
 >>> 
 >>> def my_callback(topic, msg):
@@ -91,10 +91,45 @@ MQTT Recv : Topic(event/1), msg(LED On)
 MQTT Recv : Topic(event/1), msg(LED Off)
 >>> 
 ```
-
 ![image](https://user-images.githubusercontent.com/2126804/146122099-863b2701-c070-4574-9024-760b62da28dc.png)
 
+## MQTT Publish/Subscribe example
+```
+>>> f = open('mqtt_example.py')
+>>> print(f.read())
+from umqtt.simple import MQTTClient
+import time
 
-## Memory allocation problem
-In this project, micropython, lwip and mbedTLS are all involved, so memory may be insufficient on a web page with a lot of data.
-![image](https://user-images.githubusercontent.com/2126804/146104583-34673623-005b-4b4a-8cb1-d1d8653b0fcf.png)
+def sub_cb(topic, msg):
+    print('topic={}, msg={}', topic.decode(), msg.decode())
+
+def demo(server='broker.hivemq.com'):
+    time.sleep(1)
+    print('mqtt demo stated')
+    c = MQTTClient('umqtt_client', server)
+    c.set_callback(sub_cb)
+    try:
+        print('connecting mqtt broker')
+        c.connect()
+        print('connected mqtt broker')
+        c.subscribe('event/1')
+    except OSError:
+        print('OSError')
+        return
+    except Exception as e:
+        print("Exception :", e)
+        raise e
+
+    for i in range(10):
+        c.check_msg()
+        c.publish('sensor/1', 'Temp = {}'.format(i))
+        print('sended sensor value : ', 'Temp = {}'.format(i))
+        time.sleep(2)
+
+    c.disconnect()
+    print('disconnected mqtt broker')
+
+if __name__ == "__main__":
+    demo()
+```
+![image](https://user-images.githubusercontent.com/2126804/146283219-60879d65-d9b5-47eb-8a35-41fb9632f167.png)
