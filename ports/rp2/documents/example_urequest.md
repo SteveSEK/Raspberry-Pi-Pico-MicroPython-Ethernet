@@ -273,5 +273,5 @@ If you have questions about sales or other enquiries, our contact email is:
 ![image](https://user-images.githubusercontent.com/2126804/146099355-1f540462-7c1a-4887-a54c-50b809f678dc.png)
 
 ## Memory allocation problem
-In this project, micropython, lwip and mbedTLS are all involved, so memory may be insufficient on a web page with a lot of data.
+In this project, micropython, lwip and mbedTLS are all involved, so memory may be insufficient in some cases.
 ![image](https://user-images.githubusercontent.com/2126804/146104583-34673623-005b-4b4a-8cb1-d1d8653b0fcf.png)
