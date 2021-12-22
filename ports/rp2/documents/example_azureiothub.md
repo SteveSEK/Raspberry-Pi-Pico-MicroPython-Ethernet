@@ -232,6 +232,4 @@ if __name__ == "__main__":
 
 ```
 
-![image](https://user-images.githubusercontent.com/2126804/147016476-d5daf29e-33d6-4ba1-a5e4-910e1e1b3787.png)
-
-
+![image](https://user-images.githubusercontent.com/2126804/147018077-41b5d563-8f1d-49a3-b369-cec44e133274.png)
