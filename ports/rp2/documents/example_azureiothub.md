@@ -14,6 +14,11 @@ About network activation, you can refer **[Init Network](documents/init_network.
 
 
 ## upip install micropython-umqtt.robust and micropython-iotc
+### micropython-umqtt.robust
+umqtt is a simple MQTT client for MicroPython. (Note that it uses some MicroPython shortcuts and doesn’t work with CPython). It consists of two submodules: umqtt.simple and umqtt.robust. umqtt.robust is built on top of umqtt.simple and adds auto-reconnect facilities for some of networking errors.
+### micropython-iotc
+micropython-iotc contains code for the Azure IoT Central SDK for Micropython. This enables micropython developers to easily create device solutions that semealessly connect to Azure IoT Central applications. It can run on various boards with some tweaks for low-memory devices.
+
 ```
 >>> 
 >>> import upip
