@@ -131,6 +131,10 @@ Skipping micropython_iotc.egg-info/PKG-INFO
 >>> 
 ```
 
+## SAS Token String
+To get SAS Token string in python code, I used the **[Azure IoT explorer](https://github.com/Azure/azure-iot-explorer)** utility.
+![image](https://user-images.githubusercontent.com/2126804/147017548-91183289-8e9b-4e21-9db7-5d74957ae91c.png)
+
 ## Azure IoT Hub Deivce python code
 ```
 import utime
