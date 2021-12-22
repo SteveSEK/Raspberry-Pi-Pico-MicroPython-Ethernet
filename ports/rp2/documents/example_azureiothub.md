@@ -16,8 +16,6 @@ About network activation, you can refer **[Init Network](documents/init_network.
 ## upip install micropython-umqtt.robust and micropython-iotc
 ### micropython-umqtt.robust
 umqtt is a simple MQTT client for MicroPython. (Note that it uses some MicroPython shortcuts and doesn’t work with CPython). It consists of two submodules: umqtt.simple and umqtt.robust. umqtt.robust is built on top of umqtt.simple and adds auto-reconnect facilities for some of networking errors.
-### micropython-iotc
-micropython-iotc contains code for the Azure IoT Central SDK for Micropython. This enables micropython developers to easily create device solutions that semealessly connect to Azure IoT Central applications. It can run on various boards with some tweaks for low-memory devices.
 
 ```
 >>> 
@@ -55,83 +53,6 @@ HTTPS TLS established : micropython.org
    Accept-Ranges: bytes
 Skipping micropython_umqtt.robust.egg-info/PKG-INFO
 Extracting /lib/umqtt/robust.py
-{}
->>> upip.install("micropython-iotc")
-Installing to: /lib/
-Queue: ['micropython-iotc']
-https://micropython.org/pi/micropython-iotc/json
-Address infos: [(2, 1, 0, '', ('176.58.119.26', 443))]
-HTTPS TLS established : micropython.org 
-   HTTP/1.1 404 Not Found
-https://pypi.org/pypi/micropython-iotc/json
-Address infos: [(2, 1, 0, '', ('151.101.64.223', 443))]
-HTTPS TLS established : pypi.org 
-   HTTP/1.1 200 OK
-   Connection: close
-   Content-Length: 13984
-   Access-Control-Allow-Headers: Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since
-   Access-Control-Allow-Methods: GET
-   Access-Control-Allow-Origin: *
-   Access-Control-Expose-Headers: X-PyPI-Last-Serial
-   Access-Control-Max-Age: 86400
-   Cache-Control: max-age=900, public
-   Content-Security-Policy: base-uri 'self'; block-all-mixed-content; connect-src 'self' https://api.github.com/repos/ *.fastly-insights.com *.ethicalads.io sentry.io https://api.pwnedpasswords.com https://2p66nmmycsj3.statuspage.io; default-src 'none'; font-src 'self' fonts.gstatic.com; form-action 'self'; frame-ancestors 'none'; frame-src 'none'; img-src 'self' https://warehouse-camo.ingress.cmh1.psfhosted.org/ www.google-analytics.com *.fastly-insights.com *.ethicalads.io; script-src 'self' www.googletagmanager.com www.google-analytics.com *.fastly-insights.com https://cdn.ravenjs.com *.ethicalads.io 'sha256-ozc1u5ldloj5JQ7atdxk8OzBc9sWZf84E9kk+qQuqfU='; style-src 'self' fonts.googleapis.com *.ethicalads.io 'sha256-3SFGwf4pbwaaParsaRO14/phF13lRoCzJal+Qb8dOlk=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='; worker-src *.fastly-insights.com
-   Content-Type: application/json
-   ETag: "LllhZJePrmTnTxzMUEAwQA"
-   Referrer-Policy: origin-when-cross-origin
-   Server: nginx/1.13.9
-   X-PyPI-Last-Serial: 9373155
-   Accept-Ranges: bytes
-   Date: Wed, 22 Dec 2021 00:42:54 GMT
-   X-Served-By: cache-bwi5178-BWI, cache-icn1450047-ICN
-   X-Cache: HIT, HIT
-   X-Cache-Hits: 1, 1
-   X-Timer: S1640133775.590007,VS0,VE0
-   Vary: Accept-Encoding, Accept-Encoding
-   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-   X-Frame-Options: deny
-   X-XSS-Protection: 1; mode=block
-   X-Content-Type-Options: nosniff
-   X-Permitted-Cross-Domain-Policies: none
-Installing micropython-iotc 1.1.0 from https://files.pythonhosted.org/packages/f9/2a/bc30d6ee3665ea68690695aee0e15118203a1643fc3fc180be7b72f893b5/micropython-iotc-1.1.0.tar.gz
-https://files.pythonhosted.org/packages/f9/2a/bc30d6ee3665ea68690695aee0e15118203a1643fc3fc180be7b72f893b5/micropython-iotc-1.1.0.tar.gz
-Address infos: [(2, 1, 0, '', ('151.101.1.63', 443))]
-HTTPS TLS established : files.pythonhosted.org 
-   HTTP/1.1 200 OK
-   Connection: close
-   Content-Length: 11545
-   Last-Modified: Wed, 10 Feb 2021 10:43:03 GMT
-   ETag: "96d52a6500e58dd35f4adc2a45521129"
-   Content-Type: application/x-tar
-   x-goog-hash: crc32c=YbMjHA==
-   x-goog-hash: md5=ltUqZQDljdNfStwqRVIRKQ==
-   Server: UploadServer
-   Cache-Control: max-age=365000000, immutable, public
-   Accept-Ranges: bytes
-   Date: Wed, 22 Dec 2021 00:43:05 GMT
-   Age: 700444
-   X-Served-By: cache-sea4438-SEA, cache-icn1450078-ICN
-   X-Cache: HIT, HIT
-   X-Cache-Hits: 1, 1
-   X-Timer: S1640133785.024259,VS0,VE0
-   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-   X-Frame-Options: deny
-   X-XSS-Protection: 1; mode=block
-   X-Content-Type-Options: nosniff
-   X-Robots-Header: noindex
-   Access-Control-Allow-Methods: GET, OPTIONS
-   Access-Control-Allow-Headers: Range
-   Access-Control-Allow-Origin: *
-Extracting /lib/./@PaxHeader
-Extracting /lib/iotc/__init__.py
-Extracting /lib/./@PaxHeader
-Extracting /lib/iotc/constants.py
-Extracting /lib/./@PaxHeader
-Extracting /lib/iotc/hmac.py
-Extracting /lib/./@PaxHeader
-Extracting /lib/iotc/provision.py
-Extracting /lib/./@PaxHeader
-Skipping micropython_iotc.egg-info/PKG-INFO
 {}
 >>> 
 ```
