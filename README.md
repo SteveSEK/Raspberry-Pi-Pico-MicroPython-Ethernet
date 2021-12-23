@@ -1,9 +1,12 @@
-QQQXXXXXXXXXX Raspberry Pi Pico MicroPython Ethernet
+Raspberry Pi Pico MicroPython Ethernet
 ======================================
 
 ## Overview
 This is the MicroPython project, which aims to put an implementation of micropython, WIZnet ethernet chip and raspberry pi pico(RP2040).
 And, there are some micoropython examples using it. 
+
+![image](https://user-images.githubusercontent.com/2126804/146094650-630c79a5-e1f0-4f33-bb8f-03ffea796844.png)
+
 
 ## Major Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
@@ -50,28 +53,8 @@ make -s -C build-PICO
 [  1%] Built target ELF2UF2Build
 [  2%] Built target bs2_default
 [  3%] Built target bs2_default_padded_checksummed_asm
-[  3%] Generating genhdr/mpversion.h
-[  3%] Generating genhdr/moduledefs.h
-[  4%] Generating genhdr/qstr.i.last
-[  4%] Generating genhdr/qstr.split
-[  4%] Generating genhdr/qstrdefs.collected.h
-QSTR not updated
-[  4%] Generating frozen_content.c
-Scanning dependencies of target firmware
-[  4%] Generating genhdr/mpversion.h
-[  4%] Generating genhdr/qstrdefs.collected.h
-QSTR not updated
-[  4%] Building C object CMakeFiles/firmware.dir/home/work/micropython/py/objmodule.c.obj
-[  4%] Building C object CMakeFiles/firmware.dir/home/work/micropython/extmod/moduzlib.c.obj
 ..............................................................................
 ..............................................................................
-[ 97%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/dfu/dfu_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/hid/hid_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/midi/midi_device.c.obj
-[ 98%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/msc/msc_device.c.obj
-[ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/net/net_device.c.obj
-[ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
 [ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/tinyusb/src/class/vendor/vendor_device.c.obj
 [ 99%] Building C object CMakeFiles/firmware.dir/home/work/micropython/lib/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 [100%] Linking CXX executable firmware.elf
@@ -80,43 +63,14 @@ QSTR not updated
 [100%] Built target firmware
 ```
 
+# Raspberry Pi Pico & MicroPython example
 
-# S/W Major Components
-
-# Micropython Example
-
-# License
-
-
-
-
-
-
-https://docs.wiznet.io/Product/iEthernet/W5100S/w5100s-evb-pico
-
-
-Software development environment (Build Log)
-Windows 10 WSL 
-빌드 로그
-바이너리, memory map?
-
-
-
-예제 
-   Quick Start (USB 복)
-   TCP/UDP
-   ureqest
-   mbedtls
-   upip 분석   
-   mqtt
-   extfunc
-   
-License
-
-
-------------
-예) TCP/UDP
-HW 구성 
-로그
-
+* **[Initialize Network & Ping](ports/rp2/documents/init_network.md)**
+* **[TCP/UDP client example](ports/rp2/documents/example_tcpudp.md)**
+* **[mbedTLS example (with OpenSSL)](ports/rp2/documents/example_mbedtls.md)**
+* **[upip example (insall MicroPython packages)](ports/rp2/documents/example_upip.md)**
+* **[mqtt example (umqtt package)](ports/rp2/documents/example_mqtt.md)**
+* **[HTTP(S) example (urequest package)](ports/rp2/documents/example_urequest.md)**
+* **[Azure IoT Hub Client example](ports/rp2/documents/example_azureiothub.md)**
+* **[AWS IoT Core Client example](ports/rp2/documents/example_awsiot.md)**
 
