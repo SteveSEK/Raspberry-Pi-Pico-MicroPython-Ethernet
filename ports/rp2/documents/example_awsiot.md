@@ -57,18 +57,77 @@ Extracting /lib/umqtt/robust.py
 >>> 
 ```
 
-## AWS Certificate 
+## AWS IoT client certificates
+I converted certificate files which I received AWS-IoT-administrator to der format files and uploaded them to the W5100S-EVB-Pico, as below
+And, 
 ```
-D:\Work\openssl>openssl x509 -outform DER -in cert.pem -out cert.der
+D:\Work\openssl>openssl x509 -in cert.pem -outform DER -out cert.der
 WARNING: can't open config file: /usr/local/ssl/openssl.cnf
 
-D:\Work\openssl>openssl rsa -in key.pem -pubout -outform DER -out key.der
+D:\Work\openssl>openssl rsa -in key.pem -outform DER -out key.der
 WARNING: can't open config file: /usr/local/ssl/openssl.cnf
 writing RSA key
 ```
+![image](https://user-images.githubusercontent.com/2126804/147186816-a9a9a754-4c35-4913-8e6f-753706226e99.png)
+
 
 ## Azure IoT Hub Deivce python code
 
 ```
+import utime
+import json
+from umqtt.robust import MQTTClient
+
+CERT_FILE = "/cert.der"
+KEY_FILE = "/key.der"
+MQTT_CLIENT_ID = "my_rp2040_thing"
+MQTT_PORT = 8883
+MQTT_TOPIC = "$aws/things/my_rp2040_thing/shadow/update"
+
+MQTT_HOST = "aqzlxxxxxxx-ats.iot.ap-northeast-2.amazonaws.com"
+mqtt_client = None
+
+def pub_msg(msg):
+    global mqtt_client
+    try:    
+        mqtt_client.publish(MQTT_TOPIC, msg)
+        print("Sent: " + msg)
+    except Exception as e:
+        print("Exception publish: " + str(e))
+        raise
+    
+def connect_mqtt():    
+    global mqtt_client
+
+    try:
+        with open(KEY_FILE, "r") as f: 
+            key = f.read()
+        print("Got Key")
+            
+        with open(CERT_FILE, "r") as f: 
+            cert = f.read()
+        print("Got Cert")
+
+        mqtt_client = MQTTClient(client_id=MQTT_CLIENT_ID, server=MQTT_HOST, port=MQTT_PORT, keepalive=5000, ssl=True, ssl_params={"cert":cert, "key":key, "server_side":False})
+        mqtt_client.connect()
+        print('MQTT Connected')
+
+        ## Send telemetry
+        for i in range(0, 10):            
+            msg = json.dumps({"level": i})
+            pub_msg(msg)
+            utime.sleep(2)
+
+        mqtt_client.disconnect()
+        
+    except Exception as e:
+        print('MQTT Exception : ' + str(e))
+        raise
+
+
+if __name__ == "__main__":
+    connect_mqtt()
+```
+![image](https://user-images.githubusercontent.com/2126804/147185964-a47821b3-382b-4042-8d57-031ed03a3802.png)
 
 
