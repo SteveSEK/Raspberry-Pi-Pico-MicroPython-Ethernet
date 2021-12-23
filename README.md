@@ -66,14 +66,11 @@ make -s -C build-PICO
 # Raspberry Pi Pico & MicroPython example
 
 * **[Initialize Network & Ping](ports/rp2/documents/init_network.md)**
-* **[Basic TCP/UDP example](ports/rp2/documents/example_tcpudp.md)**
-* **[mbedTLS example with OpenSSL](ports/rp2/documents/example_mbedtls.md)**
-* **[MicroPython packages insall example(upip)](ports/rp2/documents/example_upip.md)**
-* **[mqtt Client example with HiveMQBroker(umqtt)](ports/rp2/documents/example_mqtt.md)**
-* **[HTTP(S) Client example(urequest)](ports/rp2/documents/example_urequest.md)**
-
-
-
-
-
+* **[TCP/UDP client example](ports/rp2/documents/example_tcpudp.md)**
+* **[mbedTLS example (with OpenSSL)](ports/rp2/documents/example_mbedtls.md)**
+* **[upip example (insall MicroPython packages)](ports/rp2/documents/example_upip.md)**
+* **[mqtt example (umqtt package)](ports/rp2/documents/example_mqtt.md)**
+* **[HTTP(S) example (urequest package)](ports/rp2/documents/example_urequest.md)**
+* **[Azure IoT Hub Client example](ports/rp2/documents/example_azureiothub.md)**
+* **[AWS IoT Core Client example](ports/rp2/documents/example_awsiot.md)**
 
