@@ -32,6 +32,9 @@
 #include "py/lexer.h"
 #include "py/runtime.h"
 
+#include "py/mphal.h"
+#define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
+
 #if MICROPY_ENABLE_COMPILER
 
 #define TAB_SIZE (8)
@@ -586,7 +589,6 @@ void mp_lexer_to_next(mp_lexer_t *lex) {
                 lex->tok_kind = MP_TOKEN_DEDENT_MISMATCH;
             }
         }
-
     } else if (is_end(lex)) {
         lex->tok_kind = MP_TOKEN_END;
 

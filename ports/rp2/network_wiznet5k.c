@@ -61,6 +61,7 @@ uint32_t sys_now(void)
 #include "lwip/dhcp.h"
 #include "netif/etharp.h"
 
+
 #define TRACE_ETH_TX (0x0002)
 #define TRACE_ETH_RX (0x0004)
 
@@ -439,6 +440,13 @@ STATIC mp_obj_t wiznet5k_active(size_t n_args, const mp_obj_t *args)
                 wiznet5k_init();
                 netif_set_link_up(&self->netif);
                 netif_set_up(&self->netif);
+
+                {
+                    extern uint32_t g_wiznet5k_poll_delay;
+                    extern struct repeating_timer g_wiznet5k_poll_timer;
+                    bool repeating_wiznet5k_poll_callback(struct repeating_timer *t);
+                    add_repeating_timer_ms(g_wiznet5k_poll_delay, repeating_wiznet5k_poll_callback, NULL, &g_wiznet5k_poll_timer);
+                }                
             }
         }
         else
@@ -448,6 +456,11 @@ STATIC mp_obj_t wiznet5k_active(size_t n_args, const mp_obj_t *args)
                 netif_set_down(&self->netif);
                 netif_set_link_down(&self->netif);
                 wiznet5k_deinit();
+
+                {
+                    extern struct repeating_timer g_wiznet5k_poll_timer;
+                    cancel_repeating_timer(&g_wiznet5k_poll_timer);
+                }
             }
         }
         return mp_const_none;
@@ -491,8 +504,17 @@ STATIC mp_obj_t wiznet5k_status(size_t n_args, const mp_obj_t *args)
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(wiznet5k_status_obj, 1, 2, wiznet5k_status);
 
+struct repeating_timer g_wiznet5k_poll_timer;
+uint32_t g_wiznet5k_poll_delay = 10;
+bool repeating_wiznet5k_poll_callback(struct repeating_timer *t)
+{
+    wiznet5k_poll();
+    return true;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////
-///211209 wiznet5k_extfunc
+///211209 wiznet5k_extfunc XXXXXXXXXXXXXXXXXXXX
+int g_mbedtlsstep_delay = 0;
 STATIC mp_obj_t wiznet5k_extfunc(size_t n_args, const mp_obj_t *args)
 {
     wiznet5k_obj_t *self = MP_OBJ_TO_PTR(args[0]);
@@ -508,13 +530,16 @@ STATIC mp_obj_t wiznet5k_extfunc(size_t n_args, const mp_obj_t *args)
     {
         mp_int_t function = mp_obj_get_int(args[1]);
         mp_int_t param1 = mp_obj_get_int(args[2]);
-        //mp_int_t param2 = mp_obj_get_int(args[3]);
+        mp_int_t param2 = mp_obj_get_int(args[3]);
         if (function == 11)
         {
             if (param1==1)
             {
-                void wiznet5k_poll();
                 wiznet5k_poll();
+            }
+            else if (param1==2)
+            {
+                MICROPY_EVENT_POLL_HOOK
             }
         }
         else if (function == 12)
@@ -545,19 +570,41 @@ STATIC mp_obj_t wiznet5k_extfunc(size_t n_args, const mp_obj_t *args)
             printf("Malloc Test (size=%d, addr=0x%08x)   \n", param1, addr);
             if (addr )  free(addr);
         }
+        else if (function == 16)
+        {
+            if (param1==1)
+            {
+                add_repeating_timer_ms(param2, repeating_wiznet5k_poll_callback, NULL, &g_wiznet5k_poll_timer);
+                printf("timer added... \n");
+            }
+            else if (param1==2)
+            {
+                bool cancelled = cancel_repeating_timer(&g_wiznet5k_poll_timer);
+                printf("timer cancelled... %d\n", cancelled);
+            }
+            else if (param1==3)
+            {
+                g_wiznet5k_poll_delay = param2;
+            }
+        }
         else if (function == 21)
         {
-            ///211209 mbedtls set debug_threshold
-            extern int debug_threshold;
-            debug_threshold = param1;
+            if (param1==1)
+            {
+                ///211209 mbedtls set debug_threshold
+                extern int debug_threshold;
+                debug_threshold = param2;
+            }
+            else if (param1==2)
+            {
+                g_mbedtlsstep_delay = param2;
+            }
+
         }
         else if (function == 22)
         {
             ///211209 mbedtls set debug_threshold
             self->trace_flags = param1;
-        }
-        else if (function == 17)
-        {
         }
 
         return mp_const_none;

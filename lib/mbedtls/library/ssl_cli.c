@@ -3808,6 +3808,13 @@ int mbedtls_ssl_handshake_client_step( mbedtls_ssl_context *ssl )
     }
 #endif
 
+    ///211222 add delay in mbedtls_ssl_handshake_client_step (???)
+    {
+        extern void mp_hal_delay_ms(uint32_t ms);
+        extern int g_mbedtlsstep_delay;
+        mp_hal_delay_ms(g_mbedtlsstep_delay);
+    }
+
     switch( ssl->state )
     {
         case MBEDTLS_SSL_HELLO_REQUEST:

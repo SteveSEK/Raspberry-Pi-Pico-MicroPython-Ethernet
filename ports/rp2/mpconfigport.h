@@ -299,13 +299,21 @@ struct _mp_bluetooth_nimble_malloc_t;
 #define MICROPY_HW_USBDEV_TASK_HOOK
 #endif
 
-
+/* ///211203 implementation wiznet5k_poll */ 
+/*
 #define MICROPY_EVENT_POLL_HOOK \
     do { \
-        /* ///211203 implementation wiznet5k_poll */ \
         mp_hal_delay_ms(10); \
         void wiznet5k_poll(); \
         wiznet5k_poll(); \
+        extern void mp_handle_pending(bool); \
+        mp_handle_pending(true); \
+        best_effort_wfe_or_timeout(make_timeout_time_ms(1)); \
+        MICROPY_HW_USBDEV_TASK_HOOK \
+    } while (0);
+*/
+#define MICROPY_EVENT_POLL_HOOK \
+    do { \
         extern void mp_handle_pending(bool); \
         mp_handle_pending(true); \
         best_effort_wfe_or_timeout(make_timeout_time_ms(1)); \
