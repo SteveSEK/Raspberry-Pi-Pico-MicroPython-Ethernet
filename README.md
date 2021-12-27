@@ -65,6 +65,8 @@ make -s -C build-PICO
 
 # Raspberry Pi Pico & MicroPython example
 
+I'm testing the examples below with this Raspberry Pi Pico MicroPython Ethernet projects.
+
 * **[Initialize Network & Ping](ports/rp2/documents/init_network.md)**
 * **[TCP/UDP client example](ports/rp2/documents/example_tcpudp.md)**
 * **[mbedTLS example (with OpenSSL)](ports/rp2/documents/example_mbedtls.md)**
@@ -73,4 +75,10 @@ make -s -C build-PICO
 * **[HTTP(S) example (urequest package)](ports/rp2/documents/example_urequest.md)**
 * **[Azure IoT Hub Client example](ports/rp2/documents/example_azureiothub.md)**
 * **[AWS IoT Core Client example](ports/rp2/documents/example_awsiot.md)**
+
+# Notice
+For some operations, you may need to reset this device.   
+You should know that this project is unstable and doesn't work perfectly.  
+It needs more memory optimization and exception handling implementation.  
+
 
