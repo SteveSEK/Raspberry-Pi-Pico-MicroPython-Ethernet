@@ -68,11 +68,11 @@ make -s -C build-PICO
 I'm testing the examples below with this Raspberry Pi Pico MicroPython Ethernet projects.
 
 * **[Initialize Network & Ping](ports/rp2/documents/init_network.md)**
-* **[TCP/UDP client example](ports/rp2/documents/example_tcpudp.md)**
-* **[mbedTLS example (with OpenSSL)](ports/rp2/documents/example_mbedtls.md)**
-* **[upip example (insall MicroPython packages)](ports/rp2/documents/example_upip.md)**
-* **[mqtt example (umqtt package)](ports/rp2/documents/example_mqtt.md)**
-* **[HTTP(S) example (urequest package)](ports/rp2/documents/example_urequest.md)**
+* **[TCP/UDP Client](ports/rp2/documents/example_tcpudp.md)**
+* **[mbedTLS Client (with OpenSSL)](ports/rp2/documents/example_mbedtls.md)**
+* **[upip install (MicroPython packages)](ports/rp2/documents/example_upip.md)**
+* **[mqtt Client (umqtt package)](ports/rp2/documents/example_mqtt.md)**
+* **[HTTP(S) Client (urequest package)](ports/rp2/documents/example_urequest.md)**
 * **[Azure IoT Hub Client example](ports/rp2/documents/example_azureiothub.md)**
 * **[AWS IoT Core Client example](ports/rp2/documents/example_awsiot.md)**
 
