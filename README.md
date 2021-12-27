@@ -69,12 +69,12 @@ I'm testing the examples below with this Raspberry Pi Pico MicroPython Ethernet 
 
 * **[Initialize Network & Ping](ports/rp2/documents/init_network.md)**
 * **[TCP/UDP Client](ports/rp2/documents/example_tcpudp.md)**
-* **[mbedTLS Client (with OpenSSL)](ports/rp2/documents/example_mbedtls.md)**
-* **[upip install (MicroPython packages)](ports/rp2/documents/example_upip.md)**
-* **[mqtt Client (umqtt package)](ports/rp2/documents/example_mqtt.md)**
+* **[TLS Client (with OpenSSL)](ports/rp2/documents/example_mbedtls.md)**
+* **[MQTT Client (umqtt package)](ports/rp2/documents/example_mqtt.md)**
 * **[HTTP(S) Client (urequest package)](ports/rp2/documents/example_urequest.md)**
 * **[Azure IoT Hub Client example](ports/rp2/documents/example_azureiothub.md)**
 * **[AWS IoT Core Client example](ports/rp2/documents/example_awsiot.md)**
+* **[upip install (MicroPython packages)](ports/rp2/documents/example_upip.md)**
 
 # Notice
 For some operations, you may need to reset this device.   
