@@ -95,4 +95,4 @@ drwxr-xr-x    2 0        0            4096 May 07  2013 video
 ![image](https://user-images.githubusercontent.com/2126804/148728020-5783e3a5-fe73-426f-9c45-8a2973d2372e.png)
 
 ## FTP Client demo source
-About FTP Client demo source, you can refer **[here](documents/examplecode/ftplib.py)**.
+About this FTP Client demo source, you can refer **[here](examplecode/ftplib.py)**.
