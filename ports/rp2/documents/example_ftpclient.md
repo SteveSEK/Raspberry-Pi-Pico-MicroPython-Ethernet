@@ -1,6 +1,6 @@
 # FTP client example
 
-This demonstrates a FTP Client example for Raspberry PiPico(RP2040) and Micropython using WIZnet W5100S.
+This demonstrates a FTP Client example for Raspberry Pi Pico(RP2040) and Micropython using WIZnet W5100S.
 
 
 ## Hardware requirements
@@ -16,6 +16,8 @@ About network activation, you can refer **[Init Network](documents/init_network.
 * FTP Server: ftp.gnu.org
 * FTP Port: 21
 * Log with Windows 10 FTP client  
+* This FTP client example implements the Windows FTP example below using micropython. 
+* Below is the windows ftp client connection log. And, this micropython example will show the same ftp client actions. 
 ![image](https://user-images.githubusercontent.com/2126804/148727380-793f6a78-672b-44b1-88f1-bb6276d13d7f.png)
 
 ## FTP Client example
