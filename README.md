@@ -7,10 +7,16 @@ And, there are some micoropython examples using it.
 
 ![image](https://user-images.githubusercontent.com/2126804/146094650-630c79a5-e1f0-4f33-bb8f-03ffea796844.png)
 
+## Quick Start
+* You can start this quickly with these compiled files.
+  - **[firmware_mbedTLS.uf2](ports/rp2/build-PICO/firmware_mbedTLS.uf2)**
+  - **[firmware_AXTLS.uf2](ports/rp2/build-PICO/firmware_AXTLS.uf2)**
+
+
 
 ## Major Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
-* **[WIZnet W5100S](https://www.wiznet.io/ko/product-item/w5100s)** (Ethernet Chip MacRaw mode)  (W5500 가능)
+* **[WIZnet W5100S](https://www.wiznet.io/ko/product-item/w5100s)** (Ethernet Chip MacRaw mode)  (or W5500)
 * **[lwIP](https://github.com/lwip-tcpip/lwip)**
 * **[mbedTLS](https://github.com/ARMmbed/mbedtls)**
 * **[upip](https://docs.micropython.org/en/latest/reference/packages.html#upip-package-manager)**
