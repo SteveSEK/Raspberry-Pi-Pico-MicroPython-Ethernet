@@ -64,6 +64,13 @@
 #define MICROPY_ENABLE_SOURCE_LINE              (1)
 #define MICROPY_FLOAT_IMPL                      (MICROPY_FLOAT_IMPL_FLOAT)
 #define MICROPY_STREAMS_NON_BLOCK               (1)
+
+///220113 AXTLS enable MICROPY_STREAMS_POSIX_API
+#ifdef MICROPY_PY_MBEDTLS4WIZNET5K
+#else
+#define MICROPY_STREAMS_POSIX_API               (1)
+#endif
+
 #define MICROPY_MODULE_BUILTIN_INIT             (1)
 #define MICROPY_MODULE_WEAK_LINKS               (1)
 #define MICROPY_CAN_OVERRIDE_BUILTINS           (1)
@@ -119,7 +126,13 @@
 
 ///211209 add mbedtls component
 #define MICROPY_PY_USSL                         (1)
+
+///220113 AXTLS enable MICROPY_SSL_AXTLS
+#if MICROPY_PY_MBEDTLS4WIZNET5K
 #define MICROPY_SSL_MBEDTLS                     (1)
+#else
+#define MICROPY_SSL_AXTLS                       (1)
+#endif
 
 
 // Extended modules

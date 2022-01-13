@@ -136,6 +136,13 @@ STATIC mp_obj_ssl_socket_t *ussl_socket_new(mp_obj_t sock, struct ssl_args *args
     if (args->key.u_obj != mp_const_none) {
         options |= SSL_NO_DEFAULT_KEY;
     }
+
+    ///220113 AXTLS debug_threshold
+    {
+        extern int debug_threshold;
+        if ( debug_threshold>0 )    options |= SSL_DISPLAY_STATES | SSL_DISPLAY_BYTES | SSL_DISPLAY_CERTS | SSL_DISPLAY_RSA;
+    }
+
     if ((o->ssl_ctx = ssl_ctx_new(options, SSL_DEFAULT_CLNT_SESS)) == NULL) {
         mp_raise_OSError(MP_EINVAL);
     }

@@ -64,7 +64,11 @@ if (MICROPY_PY_WIZNET5K)
    ########################################################################################
    ##211201 add lwip, mbedtls include 
    INCLUDE_DIRECTORIES(${MICROPY_DIR}/ports/rp2/lwip_inc/ ${MICROPY_DIR}/lib/lwip/src/include/) 
+   #220113 AXTLS modify CMakeList.txt
    INCLUDE_DIRECTORIES(${MICROPY_DIR}/lib/mbedtls/include/) 
+   INCLUDE_DIRECTORIES(${MICROPY_DIR}/lib/axtls/crypto/) 
+   INCLUDE_DIRECTORIES(${MICROPY_DIR}/lib/axtls/ssl/) 
+   INCLUDE_DIRECTORIES(${MICROPY_DIR}/extmod/axtls-include/) 
    ########################################################################################
 endif()
 
@@ -131,78 +135,109 @@ set(MICROPY_SOURCE_LIB
     ${MICROPY_DIR}/extmod/modusocket.c
     ${MICROPY_DIR}/shared/netutils/netutils.c
     ${MICROPY_DIR}/shared/netutils/trace.c
-    ${MICROPY_DIR}/lib/mbedtls/library/aes.c
-    ${MICROPY_DIR}/lib/mbedtls/library/aesni.c
-    ${MICROPY_DIR}/lib/mbedtls/library/arc4.c
-    ${MICROPY_DIR}/lib/mbedtls/library/asn1parse.c
-    ${MICROPY_DIR}/lib/mbedtls/library/asn1write.c
-    ${MICROPY_DIR}/lib/mbedtls/library/base64.c
-    ${MICROPY_DIR}/lib/mbedtls/library/bignum.c
-    ${MICROPY_DIR}/lib/mbedtls/library/blowfish.c
-    ${MICROPY_DIR}/lib/mbedtls/library/camellia.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ccm.c
-    ${MICROPY_DIR}/lib/mbedtls/library/certs.c
-    ${MICROPY_DIR}/lib/mbedtls/library/chacha20.c
-    ${MICROPY_DIR}/lib/mbedtls/library/chachapoly.c
-    ${MICROPY_DIR}/lib/mbedtls/library/cipher.c
-    ${MICROPY_DIR}/lib/mbedtls/library/cipher_wrap.c
-    ${MICROPY_DIR}/lib/mbedtls/library/cmac.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ctr_drbg.c
-    ${MICROPY_DIR}/lib/mbedtls/library/debug.c
-    ${MICROPY_DIR}/lib/mbedtls/library/des.c
-    ${MICROPY_DIR}/lib/mbedtls/library/dhm.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ecdh.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ecdsa.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ecjpake.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ecp.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ecp_curves.c
-    ${MICROPY_DIR}/lib/mbedtls/library/entropy.c
-    ${MICROPY_DIR}/lib/mbedtls/library/entropy_poll.c
-    ${MICROPY_DIR}/lib/mbedtls/library/error.c
-    ${MICROPY_DIR}/lib/mbedtls/library/gcm.c
-    ${MICROPY_DIR}/lib/mbedtls/library/havege.c
-    ${MICROPY_DIR}/lib/mbedtls/library/hmac_drbg.c
-    ${MICROPY_DIR}/lib/mbedtls/library/md2.c
-    ${MICROPY_DIR}/lib/mbedtls/library/md4.c
-    ${MICROPY_DIR}/lib/mbedtls/library/md5.c
-    ${MICROPY_DIR}/lib/mbedtls/library/md.c
-    ${MICROPY_DIR}/lib/mbedtls/library/md_wrap.c
-    ${MICROPY_DIR}/lib/mbedtls/library/oid.c
-    ${MICROPY_DIR}/lib/mbedtls/library/padlock.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pem.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pk.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pkcs11.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pkcs12.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pkcs5.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pkparse.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pk_wrap.c
-    ${MICROPY_DIR}/lib/mbedtls/library/pkwrite.c
-    ${MICROPY_DIR}/lib/mbedtls/library/platform.c
-    ${MICROPY_DIR}/lib/mbedtls/library/platform_util.c
-    ${MICROPY_DIR}/lib/mbedtls/library/poly1305.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ripemd160.c
-    ${MICROPY_DIR}/lib/mbedtls/library/rsa.c
-    ${MICROPY_DIR}/lib/mbedtls/library/rsa_internal.c
-    ${MICROPY_DIR}/lib/mbedtls/library/sha1.c
-    ${MICROPY_DIR}/lib/mbedtls/library/sha256.c
-    ${MICROPY_DIR}/lib/mbedtls/library/sha512.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ssl_cache.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ssl_ciphersuites.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ssl_cli.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ssl_cookie.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ssl_srv.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ssl_ticket.c
-    ${MICROPY_DIR}/lib/mbedtls/library/ssl_tls.c
-    ${MICROPY_DIR}/lib/mbedtls/library/timing.c
-    ${MICROPY_DIR}/lib/mbedtls/library/x509.c
-    ${MICROPY_DIR}/lib/mbedtls/library/x509_create.c
-    ${MICROPY_DIR}/lib/mbedtls/library/x509_crl.c
-    ${MICROPY_DIR}/lib/mbedtls/library/x509_crt.c
-    ${MICROPY_DIR}/lib/mbedtls/library/x509_csr.c
-    ${MICROPY_DIR}/lib/mbedtls/library/x509write_crt.c
-    ${MICROPY_DIR}/lib/mbedtls/library/x509write_csr.c
-    ${MICROPY_DIR}/lib/mbedtls/library/xtea.c
 )
+
+#220113 AXTLS modify CMakeList.txt
+if (MICROPY_PY_MBEDTLS4WIZNET5K)
+    set(MICROPY_SOURCE_TLSLIB
+        ${MICROPY_DIR}/lib/mbedtls/library/aes.c
+        ${MICROPY_DIR}/lib/mbedtls/library/aesni.c
+        ${MICROPY_DIR}/lib/mbedtls/library/arc4.c
+        ${MICROPY_DIR}/lib/mbedtls/library/asn1parse.c
+        ${MICROPY_DIR}/lib/mbedtls/library/asn1write.c
+        ${MICROPY_DIR}/lib/mbedtls/library/base64.c
+        ${MICROPY_DIR}/lib/mbedtls/library/bignum.c
+        ${MICROPY_DIR}/lib/mbedtls/library/blowfish.c
+        ${MICROPY_DIR}/lib/mbedtls/library/camellia.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ccm.c
+        ${MICROPY_DIR}/lib/mbedtls/library/certs.c
+        ${MICROPY_DIR}/lib/mbedtls/library/chacha20.c
+        ${MICROPY_DIR}/lib/mbedtls/library/chachapoly.c
+        ${MICROPY_DIR}/lib/mbedtls/library/cipher.c
+        ${MICROPY_DIR}/lib/mbedtls/library/cipher_wrap.c
+        ${MICROPY_DIR}/lib/mbedtls/library/cmac.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ctr_drbg.c
+        ${MICROPY_DIR}/lib/mbedtls/library/debug.c
+        ${MICROPY_DIR}/lib/mbedtls/library/des.c
+        ${MICROPY_DIR}/lib/mbedtls/library/dhm.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ecdh.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ecdsa.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ecjpake.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ecp.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ecp_curves.c
+        ${MICROPY_DIR}/lib/mbedtls/library/entropy.c
+        ${MICROPY_DIR}/lib/mbedtls/library/entropy_poll.c
+        ${MICROPY_DIR}/lib/mbedtls/library/error.c
+        ${MICROPY_DIR}/lib/mbedtls/library/gcm.c
+        ${MICROPY_DIR}/lib/mbedtls/library/havege.c
+        ${MICROPY_DIR}/lib/mbedtls/library/hmac_drbg.c
+        ${MICROPY_DIR}/lib/mbedtls/library/md2.c
+        ${MICROPY_DIR}/lib/mbedtls/library/md4.c
+        ${MICROPY_DIR}/lib/mbedtls/library/md5.c
+        ${MICROPY_DIR}/lib/mbedtls/library/md.c
+        ${MICROPY_DIR}/lib/mbedtls/library/md_wrap.c
+        ${MICROPY_DIR}/lib/mbedtls/library/oid.c
+        ${MICROPY_DIR}/lib/mbedtls/library/padlock.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pem.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pk.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pkcs11.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pkcs12.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pkcs5.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pkparse.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pk_wrap.c
+        ${MICROPY_DIR}/lib/mbedtls/library/pkwrite.c
+        ${MICROPY_DIR}/lib/mbedtls/library/platform.c
+        ${MICROPY_DIR}/lib/mbedtls/library/platform_util.c
+        ${MICROPY_DIR}/lib/mbedtls/library/poly1305.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ripemd160.c
+        ${MICROPY_DIR}/lib/mbedtls/library/rsa.c
+        ${MICROPY_DIR}/lib/mbedtls/library/rsa_internal.c
+        ${MICROPY_DIR}/lib/mbedtls/library/sha1.c
+        ${MICROPY_DIR}/lib/mbedtls/library/sha256.c
+        ${MICROPY_DIR}/lib/mbedtls/library/sha512.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ssl_cache.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ssl_ciphersuites.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ssl_cli.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ssl_cookie.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ssl_srv.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ssl_ticket.c
+        ${MICROPY_DIR}/lib/mbedtls/library/ssl_tls.c
+        ${MICROPY_DIR}/lib/mbedtls/library/timing.c
+        ${MICROPY_DIR}/lib/mbedtls/library/x509.c
+        ${MICROPY_DIR}/lib/mbedtls/library/x509_create.c
+        ${MICROPY_DIR}/lib/mbedtls/library/x509_crl.c
+        ${MICROPY_DIR}/lib/mbedtls/library/x509_crt.c
+        ${MICROPY_DIR}/lib/mbedtls/library/x509_csr.c
+        ${MICROPY_DIR}/lib/mbedtls/library/x509write_crt.c
+        ${MICROPY_DIR}/lib/mbedtls/library/x509write_csr.c
+        ${MICROPY_DIR}/lib/mbedtls/library/xtea.c
+        ${PROJECT_SOURCE_DIR}/mbedtls/mbedtls_port.c    )
+else()
+    set(MICROPY_SOURCE_TLSLIB
+        ${MICROPY_DIR}/lib/axtls/ssl/asn1.c
+        ${MICROPY_DIR}/lib/axtls/ssl/gen_cert.c
+        ${MICROPY_DIR}/lib/axtls/ssl/loader.c
+        ${MICROPY_DIR}/lib/axtls/ssl/openssl.c
+        ${MICROPY_DIR}/lib/axtls/ssl/os_port.c
+        ${MICROPY_DIR}/lib/axtls/ssl/p12.c
+        ${MICROPY_DIR}/lib/axtls/ssl/tls1.c
+        ${MICROPY_DIR}/lib/axtls/ssl/tls1_clnt.c
+        ${MICROPY_DIR}/lib/axtls/ssl/tls1_svr.c
+        ${MICROPY_DIR}/lib/axtls/ssl/x509.c
+        ${MICROPY_DIR}/lib/axtls/crypto/aes.c
+        ${MICROPY_DIR}/lib/axtls/crypto/bigint.c
+        ${MICROPY_DIR}/lib/axtls/crypto/crypto_misc.c
+        ${MICROPY_DIR}/lib/axtls/crypto/hmac.c
+        ${MICROPY_DIR}/lib/axtls/crypto/md5.c
+        ${MICROPY_DIR}/lib/axtls/crypto/rc4.c
+        ${MICROPY_DIR}/lib/axtls/crypto/rsa.c
+        ${MICROPY_DIR}/lib/axtls/crypto/sha1.c
+        ${MICROPY_DIR}/lib/axtls/crypto/sha256.c
+        ${MICROPY_DIR}/lib/axtls/crypto/sha384.c
+        ${MICROPY_DIR}/lib/axtls/crypto/sha512.c    
+    )
+endif()
+
 
 
 if (MICROPY_PY_WIZNET5K)
@@ -218,7 +253,6 @@ if (MICROPY_PY_WIZNET5K)
         ##211209 add mbedtls component
         ${MICROPY_DIR}/extmod/modlwip.c
         ${PROJECT_SOURCE_DIR}/network_wiznet5k.c        
-        ${PROJECT_SOURCE_DIR}/mbedtls/mbedtls_port.c
       )
 else()
     set(MICROPY_SOURCE_DRIVERS
@@ -311,6 +345,15 @@ set(PICO_SDK_COMPONENTS
     tinyusb_device
 )
 
+
+#220113 AXTLS XXXX MICROPY_PY_MBEDTLS4WIZNET5K
+if (MICROPY_PY_MBEDTLS4WIZNET5K)
+    target_compile_definitions(${MICROPY_TARGET} PRIVATE
+        MICROPY_PY_MBEDTLS4WIZNET5K=1
+   )
+endif()
+
+
 if(MICROPY_PY_BLUETOOTH)
     list(APPEND MICROPY_SOURCE_PORT mpbthciport.c)
     target_compile_definitions(${MICROPY_TARGET} PRIVATE
@@ -352,6 +395,8 @@ target_sources(${MICROPY_TARGET} PRIVATE
     ${MICROPY_SOURCE_PY}
     ${MICROPY_SOURCE_EXTMOD}
     ${MICROPY_SOURCE_LIB}
+    #220113 AXTLS modify CMakeList.txt
+    ${MICROPY_SOURCE_TLSLIB}    
     ${MICROPY_SOURCE_DRIVERS}
     ${MICROPY_SOURCE_PORT}
 )
