@@ -70,6 +70,17 @@ int main(int argc, char **argv) {
     mp_uart_init();
     #endif
 
+    ///220121 add led25_action()
+    void led25_action(int stat);
+    for (int ii=0; ii<10; ii++)
+    {
+        led25_action(1);
+        mp_hal_delay_ms(50);
+        led25_action(0);
+        mp_hal_delay_ms(50);
+    }
+    
+
     #if MICROPY_HW_ENABLE_USBDEV
     bi_decl(bi_program_feature("USB REPL"))
     tusb_init();

@@ -41,7 +41,8 @@ build/py/lexer.o: ../py/lexer.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h ../py/objlist.h \
- ../py/objexcept.h ../py/objtuple.h ../py/pystack.h
+ ../py/objexcept.h ../py/objtuple.h ../py/pystack.h ../py/mphal.h \
+ mphalport.h
 ../py/lexer.c /usr/include/stdc-predef.h :
  /usr/include/stdio.h :
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h :
@@ -85,4 +86,5 @@ build/py/lexer.o: ../py/lexer.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h :
  /usr/include/linux/limits.h :
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h ../py/objlist.h :
- ../py/objexcept.h ../py/objtuple.h ../py/pystack.h :
+ ../py/objexcept.h ../py/objtuple.h ../py/pystack.h ../py/mphal.h :
+ mphalport.h :

@@ -1223,6 +1223,9 @@ CMakeFiles/firmware.dir/home/work/micropython/extmod/moducryptolib.c.obj
  ../mpconfigport.h
  ../mpthreadport.h
  /home/work/micropython/extmod/moducryptolib.c
+ /home/work/micropython/lib/axtls/crypto/bigint.h
+ /home/work/micropython/lib/axtls/crypto/bigint_impl.h
+ /home/work/micropython/lib/axtls/crypto/crypto.h
  /home/work/micropython/lib/mbedtls/include/mbedtls/aes.h
  /home/work/micropython/lib/mbedtls/include/mbedtls/check_config.h
  /home/work/micropython/lib/mbedtls/include/mbedtls/config.h
@@ -1323,6 +1326,9 @@ CMakeFiles/firmware.dir/home/work/micropython/extmod/moduhashlib.c.obj
  ../mpconfigport.h
  ../mpthreadport.h
  /home/work/micropython/extmod/moduhashlib.c
+ /home/work/micropython/lib/axtls/crypto/bigint.h
+ /home/work/micropython/lib/axtls/crypto/bigint_impl.h
+ /home/work/micropython/lib/axtls/crypto/crypto.h
  /home/work/micropython/lib/crypto-algorithms/sha256.c
  /home/work/micropython/lib/crypto-algorithms/sha256.h
  /home/work/micropython/lib/mbedtls/include/mbedtls/check_config.h
@@ -1762,8 +1768,22 @@ CMakeFiles/firmware.dir/home/work/micropython/extmod/modusocket.c.obj
 CMakeFiles/firmware.dir/home/work/micropython/extmod/modussl_axtls.c.obj
  ../boards/PICO/mpconfigboard.h
  ../mpconfigport.h
+ ../mphalport.h
  ../mpthreadport.h
+ /home/work/micropython/extmod/axtls-include/axtls_os_port.h
+ /home/work/micropython/extmod/axtls-include/config.h
+ /home/work/micropython/extmod/axtls-include/version.h
  /home/work/micropython/extmod/modussl_axtls.c
+ /home/work/micropython/extmod/virtpin.h
+ /home/work/micropython/lib/axtls/crypto/bigint.h
+ /home/work/micropython/lib/axtls/crypto/bigint_impl.h
+ /home/work/micropython/lib/axtls/crypto/crypto.h
+ /home/work/micropython/lib/axtls/crypto/os_int.h
+ /home/work/micropython/lib/axtls/ssl/crypto_misc.h
+ /home/work/micropython/lib/axtls/ssl/os_port.h
+ /home/work/micropython/lib/axtls/ssl/ssl.h
+ /home/work/micropython/lib/axtls/ssl/tls1.h
+ /home/work/micropython/lib/crypto-algorithms/sha256.h
  /home/work/micropython/lib/pico-sdk/src/boards/include/boards/pico.h
  /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico.h
  /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/assert.h
@@ -1779,13 +1799,18 @@ CMakeFiles/firmware.dir/home/work/micropython/extmod/modussl_axtls.c.obj
  /home/work/micropython/lib/pico-sdk/src/common/pico_time/include/pico/time.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
@@ -1793,6 +1818,7 @@ CMakeFiles/firmware.dir/home/work/micropython/extmod/modussl_axtls.c.obj
  /home/work/micropython/py/misc.h
  /home/work/micropython/py/mpconfig.h
  /home/work/micropython/py/mperrno.h
+ /home/work/micropython/py/mphal.h
  /home/work/micropython/py/mpprint.h
  /home/work/micropython/py/mpstate.h
  /home/work/micropython/py/mpthread.h
@@ -1804,6 +1830,7 @@ CMakeFiles/firmware.dir/home/work/micropython/extmod/modussl_axtls.c.obj
  /home/work/micropython/py/objtuple.h
  /home/work/micropython/py/pystack.h
  /home/work/micropython/py/qstr.h
+ /home/work/micropython/py/ringbuf.h
  /home/work/micropython/py/runtime.h
  /home/work/micropython/py/runtime0.h
  /home/work/micropython/py/stream.h
@@ -4014,8 +4041,12 @@ CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/sys.c.obj
  /home/work/micropython/lib/lwip/src/include/lwip/opt.h
  /home/work/micropython/lib/lwip/src/include/lwip/sys.h
 CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/tcp.c.obj
+ ../boards/PICO/mpconfigboard.h
  ../lwip_inc/arch/cc.h
  ../lwip_inc/lwipopts.h
+ ../mpconfigport.h
+ ../mphalport.h
+ /home/work/micropython/extmod/virtpin.h
  /home/work/micropython/lib/lwip/src/core/tcp.c
  /home/work/micropython/lib/lwip/src/include/lwip/arch.h
  /home/work/micropython/lib/lwip/src/include/lwip/debug.h
@@ -4049,6 +4080,46 @@ CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/tcp.c.obj
  /home/work/micropython/lib/lwip/src/include/lwip/stats.h
  /home/work/micropython/lib/lwip/src/include/lwip/tcp.h
  /home/work/micropython/lib/lwip/src/include/lwip/tcpbase.h
+ /home/work/micropython/lib/pico-sdk/src/boards/include/boards/pico.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/assert.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/config.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/error.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/types.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_time/include/pico/time.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+ /home/work/micropython/py/misc.h
+ /home/work/micropython/py/mpconfig.h
+ /home/work/micropython/py/mphal.h
+ /home/work/micropython/py/mpprint.h
+ /home/work/micropython/py/obj.h
+ /home/work/micropython/py/qstr.h
+ /home/work/micropython/py/ringbuf.h
+ /home/work/micropython/py/runtime0.h
+ generated/pico_base/pico/config_autogen.h
+ generated/pico_base/pico/version.h
+ genhdr/qstrdefs.generated.h
 CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/tcp_in.c.obj
  ../lwip_inc/arch/cc.h
  ../lwip_inc/lwipopts.h
@@ -4169,9 +4240,13 @@ CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/tcp_out.c.obj
  generated/pico_base/pico/version.h
  genhdr/qstrdefs.generated.h
 CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/timeouts.c.obj
+ ../boards/PICO/mpconfigboard.h
  ../lwip_inc/arch/cc.h
  ../lwip_inc/arch/sys_arch.h
  ../lwip_inc/lwipopts.h
+ ../mpconfigport.h
+ ../mphalport.h
+ /home/work/micropython/extmod/virtpin.h
  /home/work/micropython/lib/lwip/src/core/timeouts.c
  /home/work/micropython/lib/lwip/src/include/lwip/arch.h
  /home/work/micropython/lib/lwip/src/include/lwip/autoip.h
@@ -4223,6 +4298,46 @@ CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/timeouts.c.obj
  /home/work/micropython/lib/lwip/src/include/lwip/tcpip.h
  /home/work/micropython/lib/lwip/src/include/lwip/timeouts.h
  /home/work/micropython/lib/lwip/src/include/lwip/udp.h
+ /home/work/micropython/lib/pico-sdk/src/boards/include/boards/pico.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/assert.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/config.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/error.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/types.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h
+ /home/work/micropython/lib/pico-sdk/src/common/pico_time/include/pico/time.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+ /home/work/micropython/py/misc.h
+ /home/work/micropython/py/mpconfig.h
+ /home/work/micropython/py/mphal.h
+ /home/work/micropython/py/mpprint.h
+ /home/work/micropython/py/obj.h
+ /home/work/micropython/py/qstr.h
+ /home/work/micropython/py/ringbuf.h
+ /home/work/micropython/py/runtime0.h
+ generated/pico_base/pico/config_autogen.h
+ generated/pico_base/pico/version.h
+ genhdr/qstrdefs.generated.h
 CMakeFiles/firmware.dir/home/work/micropython/lib/lwip/src/core/udp.c.obj
  ../boards/PICO/mpconfigboard.h
  ../lwip_inc/arch/cc.h
@@ -8705,7 +8820,9 @@ CMakeFiles/firmware.dir/home/work/micropython/py/gc.c.obj
 CMakeFiles/firmware.dir/home/work/micropython/py/lexer.c.obj
  ../boards/PICO/mpconfigboard.h
  ../mpconfigport.h
+ ../mphalport.h
  ../mpthreadport.h
+ /home/work/micropython/extmod/virtpin.h
  /home/work/micropython/lib/pico-sdk/src/boards/include/boards/pico.h
  /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico.h
  /home/work/micropython/lib/pico-sdk/src/common/pico_base/include/pico/assert.h
@@ -8721,13 +8838,18 @@ CMakeFiles/firmware.dir/home/work/micropython/py/lexer.c.obj
  /home/work/micropython/lib/pico-sdk/src/common/pico_time/include/pico/time.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h
+ /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h
  /home/work/micropython/lib/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
+ /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
  /home/work/micropython/lib/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
@@ -8736,6 +8858,7 @@ CMakeFiles/firmware.dir/home/work/micropython/py/lexer.c.obj
  /home/work/micropython/py/lexer.h
  /home/work/micropython/py/misc.h
  /home/work/micropython/py/mpconfig.h
+ /home/work/micropython/py/mphal.h
  /home/work/micropython/py/mpprint.h
  /home/work/micropython/py/mpstate.h
  /home/work/micropython/py/mpthread.h
@@ -8747,6 +8870,7 @@ CMakeFiles/firmware.dir/home/work/micropython/py/lexer.c.obj
  /home/work/micropython/py/pystack.h
  /home/work/micropython/py/qstr.h
  /home/work/micropython/py/reader.h
+ /home/work/micropython/py/ringbuf.h
  /home/work/micropython/py/runtime.h
  /home/work/micropython/py/runtime0.h
  generated/pico_base/pico/config_autogen.h

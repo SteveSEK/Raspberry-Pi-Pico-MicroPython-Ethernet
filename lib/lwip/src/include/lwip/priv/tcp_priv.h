@@ -388,7 +388,6 @@ extern struct tcp_pcb ** const tcp_pcb_lists[NUM_TCP_PCB_LISTS];
                             } while(0)
 
 #else /* LWIP_DEBUG */
-
 #define TCP_REG(pcbs, npcb)                        \
   do {                                             \
     (npcb)->next = *pcbs;                          \

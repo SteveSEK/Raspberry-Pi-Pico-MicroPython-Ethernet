@@ -13,11 +13,11 @@ a7eba0c03bdad65beec9771a63511442 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-upd
 2edc121cf66a6075cb204e6385c47044 frozen_content.c
 3636d56f9a5fbf4111aca29424a50491 genhdr/moduledefs.h
 b87ba5eb93e0bde279e0cfcb9a6120d4 genhdr/mpversion.h
-c3b936a216c280e5998c8eac57b64574 genhdr/qstr.i.last
+2b8a77c44618ce9500f9ea3f5ce0c681 genhdr/qstr.i.last
 b53646236be053b2a10ad3968581d16b genhdr/qstr.split
 2c055475dbfeadb68ec66e3bbc3daf51 genhdr/qstrdefs.collected.h
 ddb5332b479099f7ac1c9b4eb7e1162b genhdr/qstrdefs.generated.h
-7e69aceae9b38719d9c444aa2f5addaa genhdr/qstrdefs.preprocessed.h
+40228d825a1dc4890173fdefbb7af7c5 genhdr/qstrdefs.preprocessed.h
 02c2dda2c15b628318ca4b6c68d610ff pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin
 02c2dda2c15b628318ca4b6c68d610ff pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm
 aa53c9d66d0dca952372c9e8cdf78d4a pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin

@@ -312,7 +312,8 @@ struct _mp_bluetooth_nimble_malloc_t;
 #define MICROPY_HW_USBDEV_TASK_HOOK
 #endif
 
-/* ///211203 implementation wiznet5k_poll */ 
+///211203 implementation wiznet5k_poll
+///220121 add sys_check_timeouts(). It must be called periodically from your main loop.
 /*
 #define MICROPY_EVENT_POLL_HOOK \
     do { \
@@ -325,6 +326,7 @@ struct _mp_bluetooth_nimble_malloc_t;
         MICROPY_HW_USBDEV_TASK_HOOK \
     } while (0);
 */
+/*
 #define MICROPY_EVENT_POLL_HOOK \
     do { \
         extern void mp_handle_pending(bool); \
@@ -332,6 +334,17 @@ struct _mp_bluetooth_nimble_malloc_t;
         best_effort_wfe_or_timeout(make_timeout_time_ms(1)); \
         MICROPY_HW_USBDEV_TASK_HOOK \
     } while (0);
+*/
+#define MICROPY_EVENT_POLL_HOOK \
+    do { \
+        extern void mp_handle_pending(bool); \
+        mp_handle_pending(true); \
+        best_effort_wfe_or_timeout(make_timeout_time_ms(1)); \
+        MICROPY_HW_USBDEV_TASK_HOOK \
+        void sys_check_timeouts(void); \
+        sys_check_timeouts(); \
+    } while (0);
+
 
 #define MICROPY_THREAD_YIELD()
 #define MICROPY_MAKE_POINTER_CALLABLE(p) ((void *)((mp_uint_t)(p) | 1))

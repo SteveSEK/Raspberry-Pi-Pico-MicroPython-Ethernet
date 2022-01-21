@@ -231,6 +231,7 @@ STATIC err_t wiznet5k_netif_output(struct netif *netif, struct pbuf *p)
         netutils_ethernet_trace(MP_PYTHON_PRINTER, p->tot_len, self->eth_frame, NETUTILS_TRACE_IS_TX | NETUTILS_TRACE_NEWLINE);
     }
     wiznet5k_send_ethernet(self, p->tot_len, self->eth_frame);
+
     return ERR_OK;
 }
 
@@ -294,6 +295,22 @@ STATIC void wiznet5k_lwip_init(wiznet5k_obj_t *self)
     self->netif.flags &= ~NETIF_FLAG_UP;
 }
 
+///220121 add led25_action()
+void led25_action(int stat)
+{
+    static int led_initialized = 0;
+    const uint led_pin = 25;
+    
+    if (led_initialized == 0)
+    {
+        gpio_init(led_pin);
+        gpio_set_dir(led_pin, GPIO_OUT);
+        led_initialized = 1;
+    }
+
+    gpio_put(led_pin, stat);    
+}
+
 ///211203 implementation wiznet5k_poll
 void wiznet5k_poll(void)
 {
@@ -304,6 +321,7 @@ void wiznet5k_poll(void)
     }
 
     uint16_t len;
+    //led25_action(1);
     while ((len = wiznet5k_recv_ethernet(self)) > 0)
     {
         if (self->trace_flags & TRACE_ETH_RX)
@@ -321,6 +339,7 @@ void wiznet5k_poll(void)
             }
         }
     }
+    //led25_action(0);
 }
 
 
@@ -505,7 +524,9 @@ STATIC mp_obj_t wiznet5k_status(size_t n_args, const mp_obj_t *args)
 STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(wiznet5k_status_obj, 1, 2, wiznet5k_status);
 
 struct repeating_timer g_wiznet5k_poll_timer;
-uint32_t g_wiznet5k_poll_delay = 10;
+
+//uint32_t g_wiznet5k_poll_delay = 10;
+uint32_t g_wiznet5k_poll_delay = 50;
 bool repeating_wiznet5k_poll_callback(struct repeating_timer *t)
 {
     wiznet5k_poll();
@@ -606,6 +627,7 @@ STATIC mp_obj_t wiznet5k_extfunc(size_t n_args, const mp_obj_t *args)
             ///211209 mbedtls set debug_threshold
             self->trace_flags = param1;
         }
+
 
         return mp_const_none;
     }

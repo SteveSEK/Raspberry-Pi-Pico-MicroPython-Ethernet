@@ -61,6 +61,9 @@
 #include "lwip/sys.h"
 #include "lwip/pbuf.h"
 
+#include "py/mphal.h"
+#define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
+
 #if LWIP_DEBUG_TIMERNAMES
 #define HANDLER(x) x, #x
 #else /* LWIP_DEBUG_TIMERNAMES */

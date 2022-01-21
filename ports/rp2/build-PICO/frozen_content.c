@@ -43,6 +43,7 @@ typedef struct _mp_obj_complex_t {
 enum {
     MP_QSTR__boot_dot_py = MP_QSTRnumber_of,
     MP_QSTR_os,
+    MP_QSTR_led,
     MP_QSTR_bdev,
     MP_QSTR_vfs,
     MP_QSTR_rp2_dot_py,
@@ -311,10 +312,11 @@ const qstr_pool_t mp_qstr_frozen_const_pool = {
     (qstr_pool_t*)&mp_qstr_const_pool, // previous pool
     MP_QSTRnumber_of, // previous pool size
     10, // allocated entries
-    263, // used entries
+    264, // used entries
     {
         (const byte*)"\xab\x08" "_boot.py",
         (const byte*)"\x79\x02" "os",
+        (const byte*)"\x68\x03" "led",
         (const byte*)"\x70\x04" "bdev",
         (const byte*)"\x86\x03" "vfs",
         (const byte*)"\x12\x06" "rp2.py",
@@ -580,11 +582,11 @@ const qstr_pool_t mp_qstr_frozen_const_pool = {
 };
 
 // frozen bytecode for file _boot.py, scope _boot_<module>
-STATIC const byte fun_data__boot__lt_module_gt_[152] = {
-    0x3c, 0x1c,
+STATIC const byte fun_data__boot__lt_module_gt_[321] = {
+    0x3c, 0x3a,
     MP_QSTR__lt_module_gt_ & 0xff, MP_QSTR__lt_module_gt_ >> 8,
     MP_QSTR__boot_dot_py & 0xff, MP_QSTR__boot_dot_py >> 8,
-    0x28, 0x70, 0x40, 0x2b, 0x23, 0x59, 0x36, 0x39, 0x4f, 0x00,
+    0x28, 0x70, 0x20, 0x28, 0x30, 0x2f, 0x2a, 0x2b, 0x2a, 0x2b, 0x2a, 0x2b, 0x2a, 0x2b, 0x2a, 0x2b, 0x6a, 0x60, 0x2b, 0x23, 0x59, 0x36, 0x39, 0x4f, 0x00,
     0x80, 
     0x51, 
     0x1b, MP_QSTR_os & 0xff, MP_QSTR_os >> 8, 
@@ -597,6 +599,78 @@ STATIC const byte fun_data__boot__lt_module_gt_[152] = {
     0x51, 
     0x1b, MP_QSTR_rp2 & 0xff, MP_QSTR_rp2 >> 8, 
     0x16, MP_QSTR_rp2 & 0xff, MP_QSTR_rp2 >> 8, 
+    0x80, 
+    0x51, 
+    0x1b, MP_QSTR_time & 0xff, MP_QSTR_time >> 8, 
+    0x16, MP_QSTR_time & 0xff, MP_QSTR_time >> 8, 
+    0x80, 
+    0x10, MP_QSTR_Pin & 0xff, MP_QSTR_Pin >> 8, 
+    0x2a, 0x01, 
+    0x1b, MP_QSTR_machine & 0xff, MP_QSTR_machine >> 8, 
+    0x1c, MP_QSTR_Pin & 0xff, MP_QSTR_Pin >> 8, 
+    0x16, MP_QSTR_Pin & 0xff, MP_QSTR_Pin >> 8, 
+    0x59, 
+    0x11, MP_QSTR_Pin & 0xff, MP_QSTR_Pin >> 8, 
+    0x99, 
+    0x11, MP_QSTR_Pin & 0xff, MP_QSTR_Pin >> 8, 
+    0x13, MP_QSTR_OUT & 0xff, MP_QSTR_OUT >> 8, 
+    0x34, 0x02, 
+    0x16, MP_QSTR_led & 0xff, MP_QSTR_led >> 8, 
+    0x11, MP_QSTR_led & 0xff, MP_QSTR_led >> 8, 
+    0x14, MP_QSTR_value & 0xff, MP_QSTR_value >> 8, 
+    0x81, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_time & 0xff, MP_QSTR_time >> 8, 
+    0x14, MP_QSTR_sleep & 0xff, MP_QSTR_sleep >> 8, 
+    0x23, 0x00, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_led & 0xff, MP_QSTR_led >> 8, 
+    0x14, MP_QSTR_value & 0xff, MP_QSTR_value >> 8, 
+    0x80, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_time & 0xff, MP_QSTR_time >> 8, 
+    0x14, MP_QSTR_sleep & 0xff, MP_QSTR_sleep >> 8, 
+    0x23, 0x01, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_led & 0xff, MP_QSTR_led >> 8, 
+    0x14, MP_QSTR_value & 0xff, MP_QSTR_value >> 8, 
+    0x81, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_time & 0xff, MP_QSTR_time >> 8, 
+    0x14, MP_QSTR_sleep & 0xff, MP_QSTR_sleep >> 8, 
+    0x23, 0x02, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_led & 0xff, MP_QSTR_led >> 8, 
+    0x14, MP_QSTR_value & 0xff, MP_QSTR_value >> 8, 
+    0x80, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_time & 0xff, MP_QSTR_time >> 8, 
+    0x14, MP_QSTR_sleep & 0xff, MP_QSTR_sleep >> 8, 
+    0x23, 0x03, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_led & 0xff, MP_QSTR_led >> 8, 
+    0x14, MP_QSTR_value & 0xff, MP_QSTR_value >> 8, 
+    0x81, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_time & 0xff, MP_QSTR_time >> 8, 
+    0x14, MP_QSTR_sleep & 0xff, MP_QSTR_sleep >> 8, 
+    0x23, 0x04, 
+    0x36, 0x01, 
+    0x59, 
+    0x11, MP_QSTR_led & 0xff, MP_QSTR_led >> 8, 
+    0x14, MP_QSTR_value & 0xff, MP_QSTR_value >> 8, 
+    0x80, 
+    0x36, 0x01, 
+    0x59, 
     0x11, MP_QSTR_rp2 & 0xff, MP_QSTR_rp2 >> 8, 
     0x14, MP_QSTR_Flash & 0xff, MP_QSTR_Flash >> 8, 
     0x36, 0x00, 
@@ -640,15 +714,67 @@ STATIC const byte fun_data__boot__lt_module_gt_[152] = {
     0x51, 
     0x63, 
 };
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+STATIC const mp_obj_float_t const_obj__boot__lt_module_gt__0 = {{&mp_type_float}, (mp_float_t)0.1};
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+STATIC const mp_obj_float_t const_obj__boot__lt_module_gt__1 = {{&mp_type_float}, (mp_float_t)0.1};
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+STATIC const mp_obj_float_t const_obj__boot__lt_module_gt__2 = {{&mp_type_float}, (mp_float_t)0.1};
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+STATIC const mp_obj_float_t const_obj__boot__lt_module_gt__3 = {{&mp_type_float}, (mp_float_t)0.1};
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+STATIC const mp_obj_float_t const_obj__boot__lt_module_gt__4 = {{&mp_type_float}, (mp_float_t)0.1};
+#endif
+STATIC const mp_rom_obj_t const_table_data__boot__lt_module_gt_[5] = {
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+    MP_ROM_PTR(&const_obj__boot__lt_module_gt__0),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_C
+    (mp_rom_obj_t)(0xbe4cccce),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_D
+    (mp_rom_obj_t)(0xbfbd99999999999a),
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+    MP_ROM_PTR(&const_obj__boot__lt_module_gt__1),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_C
+    (mp_rom_obj_t)(0xbe4cccce),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_D
+    (mp_rom_obj_t)(0xbfbd99999999999a),
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+    MP_ROM_PTR(&const_obj__boot__lt_module_gt__2),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_C
+    (mp_rom_obj_t)(0xbe4cccce),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_D
+    (mp_rom_obj_t)(0xbfbd99999999999a),
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+    MP_ROM_PTR(&const_obj__boot__lt_module_gt__3),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_C
+    (mp_rom_obj_t)(0xbe4cccce),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_D
+    (mp_rom_obj_t)(0xbfbd99999999999a),
+#endif
+#if MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_A || MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_B
+    MP_ROM_PTR(&const_obj__boot__lt_module_gt__4),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_C
+    (mp_rom_obj_t)(0xbe4cccce),
+#elif MICROPY_OBJ_REPR == MICROPY_OBJ_REPR_D
+    (mp_rom_obj_t)(0xbfbd99999999999a),
+#endif
+};
 const mp_raw_code_t raw_code__boot__lt_module_gt_ = {
     .kind = MP_CODE_BYTECODE,
     .scope_flags = 0x00,
     .n_pos_args = 0,
     .fun_data = fun_data__boot__lt_module_gt_,
-    .const_table = NULL,
+    .const_table = (mp_uint_t*)const_table_data__boot__lt_module_gt_,
     #if MICROPY_PERSISTENT_CODE_SAVE
-    .fun_data_len = 152,
-    .n_obj = 0,
+    .fun_data_len = 321,
+    .n_obj = 5,
     .n_raw_code = 0,
     #if MICROPY_PY_SYS_SETTRACE
     .prelude = {
@@ -661,7 +787,7 @@ const mp_raw_code_t raw_code__boot__lt_module_gt_ = {
         .qstr_block_name = MP_QSTR__lt_module_gt_,
         .qstr_source_file = MP_QSTR__boot_dot_py,
         .line_info = fun_data__boot__lt_module_gt_ + 6,
-        .opcodes = fun_data__boot__lt_module_gt_ + 16,
+        .opcodes = fun_data__boot__lt_module_gt_ + 31,
     },
     .line_of_definition = 0,
     #endif

@@ -1461,7 +1461,7 @@ enum {
 
 # 1 "/home/work/micropython/ports/rp2/boards/PICO/mpconfigboard.h" 1
 # 35 "/home/work/micropython/ports/rp2/mpconfigport.h" 2
-# 180 "/home/work/micropython/ports/rp2/mpconfigport.h"
+# 193 "/home/work/micropython/ports/rp2/mpconfigport.h"
 extern const struct _mp_obj_module_t mp_module_machine;
 extern const struct _mp_obj_module_t mp_module_network;
 extern const struct _mp_obj_module_t mp_module_onewire;
@@ -1469,9 +1469,9 @@ extern const struct _mp_obj_module_t mp_module_rp2;
 extern const struct _mp_obj_module_t mp_module_uos;
 extern const struct _mp_obj_module_t mp_module_usocket;
 extern const struct _mp_obj_module_t mp_module_utime;
-# 221 "/home/work/micropython/ports/rp2/mpconfigport.h"
+# 234 "/home/work/micropython/ports/rp2/mpconfigport.h"
 extern const struct _mp_obj_type_t mod_network_nic_type_wiznet5k;
-# 319 "/home/work/micropython/ports/rp2/mpconfigport.h"
+# 353 "/home/work/micropython/ports/rp2/mpconfigport.h"
 typedef intptr_t mp_int_t;
 typedef uintptr_t mp_uint_t;
 typedef intptr_t mp_off_t;
@@ -1881,14 +1881,14 @@ extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
 # 12 "/usr/include/newlib/alloca.h" 2 3
-# 325 "/home/work/micropython/ports/rp2/mpconfigport.h" 2
+# 359 "/home/work/micropython/ports/rp2/mpconfigport.h" 2
 
 
 
 
 
 
-# 330 "/home/work/micropython/ports/rp2/mpconfigport.h"
+# 364 "/home/work/micropython/ports/rp2/mpconfigport.h"
 extern uint32_t rosc_random_u32(void);
 # 63 "/home/work/micropython/py/mpconfig.h" 2
 # 764 "/home/work/micropython/py/mpconfig.h"

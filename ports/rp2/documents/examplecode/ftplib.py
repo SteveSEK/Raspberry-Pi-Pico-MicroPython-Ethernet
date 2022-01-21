@@ -260,7 +260,7 @@ class FTP:
         self.sock = self._create_connection((self.host, self.port), timeout,
                                             source_address)
         
-        # sekim 
+        #220121 ftplib demo modify 
         #self.af = self.sock.family
         self.file = self.sock.makefile('rb')
         self.welcome = self.getresp()
@@ -335,7 +335,7 @@ class FTP:
             code = line[:3]
             while 1:
                 nextline = self.getline()
-                # sekim 
+                #220121 ftplib demo modify 
                 #line = line + (b'\n' + nextline)
                 line = line + '\n' + nextline
                 if nextline[:3] == code and \
@@ -485,7 +485,7 @@ class FTP:
         return sock
 
     def makepasv(self):
-        # sekim 
+        #220121 ftplib demo modify 
         '''
         if self.af == _socket.AF_INET:
             host, port = parse227(self.sendcmd('PASV'))

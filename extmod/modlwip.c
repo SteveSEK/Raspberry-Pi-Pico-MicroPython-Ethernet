@@ -77,11 +77,22 @@
 #endif
 
 // A port can define these hooks to provide concurrency protection
+////////////////////////////////////////////////////////////////////////////////////////
+///220121 irq disable for lwip some actions
+/*
 #ifndef MICROPY_PY_LWIP_ENTER
 #define MICROPY_PY_LWIP_ENTER
 #define MICROPY_PY_LWIP_REENTER
 #define MICROPY_PY_LWIP_EXIT
 #endif
+*/
+uint32_t g_pico_irq_flags;
+#ifndef MICROPY_PY_LWIP_ENTER
+#define MICROPY_PY_LWIP_ENTER      g_pico_irq_flags = save_and_disable_interrupts();
+#define MICROPY_PY_LWIP_REENTER    g_pico_irq_flags = save_and_disable_interrupts();
+#define MICROPY_PY_LWIP_EXIT       restore_interrupts(g_pico_irq_flags);
+#endif
+////////////////////////////////////////////////////////////////////////////////////////
 
 #ifdef MICROPY_PY_LWIP_SLIP
 #include "netif/slipif.h"
@@ -705,6 +716,15 @@ STATIC mp_uint_t lwip_tcp_send(lwip_socket_obj_t *socket, const byte *buf, mp_ui
             break;
         }
 
+        ///220121 check error in lwip_tcp_send()
+        if (i==199)
+        {
+            printf("lwip_tcp_send error  \n");
+            MICROPY_PY_LWIP_EXIT
+            *_errno = MP_ETIMEDOUT;
+            return MP_STREAM_ERROR;
+        }
+
         err = tcp_output(socket->pcb.tcp);
         if (err != ERR_OK) {
             break;
@@ -720,8 +740,8 @@ STATIC mp_uint_t lwip_tcp_send(lwip_socket_obj_t *socket, const byte *buf, mp_ui
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    ///211203 force to tcp_output() (???)
-    err = tcp_output(socket->pcb.tcp);
+    ///211203 force to tcp_output() (???) removed it 
+    //err = tcp_output(socket->pcb.tcp);
     ////////////////////////////////////////////////////////////////////////////////////////////////            
 
     MICROPY_PY_LWIP_EXIT

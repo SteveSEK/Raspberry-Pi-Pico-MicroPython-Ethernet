@@ -84,6 +84,9 @@ STATIC const char *const ssl_error_tab2[] = {
     "NOT_SUPPORTED",
 };
 
+#include "py/mphal.h"
+#define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
+
 STATIC NORETURN void ussl_raise_error(int err) {
     MP_STATIC_ASSERT(SSL_NOT_OK - 3 == SSL_EAGAIN);
     MP_STATIC_ASSERT(SSL_ERROR_CONN_LOST - 18 == SSL_ERROR_NOT_SUPPORTED);

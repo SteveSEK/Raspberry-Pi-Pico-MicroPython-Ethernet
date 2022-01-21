@@ -141,6 +141,9 @@
 #define INITIAL_MSS TCP_MSS
 #endif
 
+#include "py/mphal.h"
+#define printf(...) mp_printf(MP_PYTHON_PRINTER, __VA_ARGS__)
+
 static const char *const tcp_state_str[] = {
   "CLOSED",
   "LISTEN",
