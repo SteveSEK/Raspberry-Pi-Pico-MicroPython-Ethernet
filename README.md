@@ -9,8 +9,8 @@ And, there are some micoropython examples using it.
 
 ## Quick Start
 * You can start this quickly with these compiled files.
-  - **[firmware_AXTLS.uf2](ports/rp2/documents/fw/firmware_axtls.uf2)**
-  - **[firmware_mbedTLS.uf2](ports/rp2/documents/fw/firmware_mbedtls.uf2)**
+  - **[firmware_axtls.uf2 (732KB)](ports/rp2/documents/fw/firmware_axtls.uf2)**
+  - **[firmware_mbedtls.uf2 (850KB)](ports/rp2/documents/fw/firmware_mbedtls.uf2)**
   
 ## Major Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
