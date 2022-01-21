@@ -16,7 +16,8 @@ And, there are some micoropython examples using it.
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
 * **[WIZnet W5100S](https://www.wiznet.io/ko/product-item/w5100s)** (Ethernet Chip MacRaw mode)  (or W5500)
 * **[lwIP](https://github.com/lwip-tcpip/lwip)**
-* **[mbedTLS](https://github.com/ARMmbed/mbedtls)**
+* **[AXTLS](https://github.com/micropython/axtls/tree/531cab9c278c947d268bd4c94ecab9153a961b43)**
+* **[mbedTLS](https://github.com/ARMmbed/mbedtls/tree/1bc2c9cb8b8fe4659bd94b8ebba5a4c02029b7fa)**
 * **[upip](https://docs.micropython.org/en/latest/reference/packages.html#upip-package-manager)**
  
 # Hardware requirements
