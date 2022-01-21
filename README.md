@@ -9,11 +9,9 @@ And, there are some micoropython examples using it.
 
 ## Quick Start
 * You can start this quickly with these compiled files.
-  - **[firmware_mbedTLS.uf2](ports/rp2/build-PICO/firmware_mbedTLS.uf2)**
-  - **[firmware_AXTLS.uf2](ports/rp2/build-PICO/firmware_AXTLS.uf2)**
-
-
-
+  - **[firmware_AXTLS.uf2](ports/rp2/documents/fw/firmware_axtls.uf2)**
+  - **[firmware_mbedTLS.uf2](ports/rp2/documents/fw/firmware_mbedtls.uf2)**
+  
 ## Major Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
 * **[WIZnet W5100S](https://www.wiznet.io/ko/product-item/w5100s)** (Ethernet Chip MacRaw mode)  (or W5500)
