@@ -13,9 +13,6 @@ And, there are some micoropython examples using it.
   - **[Micropython firmware for RP2040(with mbedTLS) (850KB)](ports/rp2/documents/fw/firmware_mbedtls.uf2)**
 
 [![Video Label](http://img.youtube.com/vi/6RJRbAHxu5Y/0.jpg)](https://youtu.be/6RJRbAHxu5Y?t=0s)
-
-
-<iframe width="956" height="538" src="https://www.youtube.com/embed/6RJRbAHxu5Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
 ## Major Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
