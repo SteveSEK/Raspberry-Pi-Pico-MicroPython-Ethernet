@@ -14,7 +14,7 @@ And, there are some micoropython examples using it.
 
 ## Quick Start YouTube 
 ![image](https://user-images.githubusercontent.com/2126804/150751997-f318b8f5-8442-426e-b0b2-fb54dc83bd6f.png)
-[![Video Label](https://user-images.githubusercontent.com/2126804/150751997-f318b8f5-8442-426e-b0b2-fb54dc83bd6f.png)](https://youtu.be/uLR1RNqJ1Mw?t=0s)
+[![Video Label](https://user-images.githubusercontent.com/2126804/150751997-f318b8f5-8442-426e-b0b2-fb54dc83bd6f.png)](https://youtu.be/6RJRbAHxu5Y?t=0s)
 
 
 
