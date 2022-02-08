@@ -86,8 +86,5 @@ I'm testing the examples below with this Raspberry Pi Pico MicroPython Ethernet 
 * **[upip install (MicroPython packages)](ports/rp2/documents/example_upip.md)**
 
 # Notice
-For some operations, you may need to reset this device.   
-You should know that this project is unstable and doesn't work perfectly.  
 It needs more memory optimization and exception handling implementation.  
-
 
