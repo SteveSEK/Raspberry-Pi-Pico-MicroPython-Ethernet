@@ -16,7 +16,7 @@ And, there are some micoropython examples using it.
 [![Video Label](https://user-images.githubusercontent.com/2126804/150751997-f318b8f5-8442-426e-b0b2-fb54dc83bd6f.png)](https://youtu.be/6RJRbAHxu5Y?t=0s)
 
   
-## Major Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
+## Main Features (components) based on on **[Micropython](https://github.com/micropython/micropython)**
 * **[RP2040 SDK](https://www.raspberrypi.com/products/rp2040)**
 * **[WIZnet W5100S](https://www.wiznet.io/ko/product-item/w5100s)** (Ethernet Chip MacRaw mode)  (or W5500)
 * **[lwIP](https://github.com/lwip-tcpip/lwip)**
